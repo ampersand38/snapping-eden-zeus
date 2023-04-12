@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="SEZ">
+	<Package name="Main">
+        <Key ID="STR_SEZ_Main_TandemJump">
+            <English>Tandem Jump</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_cutLoweringLine">
+            <English>Cut Lowering Line</Original>
+        </Key>
+	</Package>
+</Project>

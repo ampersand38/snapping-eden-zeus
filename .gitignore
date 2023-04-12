@@ -1,0 +1,14 @@
+release/*
+*.cache
+*.pbo
+texHeaders.bin
+*.swp
+*.swo
+*.biprivatekey
+Thumbs.db
+releases/*
+keys/*
+.hemtt/local
+*.exe
+*.blend
+*.blend1

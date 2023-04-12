@@ -1,0 +1,12 @@
+name = "Snapping Eden Zeus";
+picture = "logo_ampersand_ca.paa";
+actionName = "GitHub";
+action = "https://github.com/ampersand38/snapping-eden-zeus";
+description = "Easily align objects in the editors.";
+logo = "logo_ampersand_ca.paa";
+logoOver = "logo_ampersand_ca.paa";
+tooltip = "Snapping Eden Zeus";
+tooltipOwned = "Snapping Eden Zeus";
+overview = "Easily align objects in the editors.";
+author = "Ampersand";
+overviewPicture = "logo_ampersand_ca.paa";
