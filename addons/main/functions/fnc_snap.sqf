@@ -102,7 +102,7 @@ if (_angle > -1
 
 // Transform position
 _pos = _pos vectorDiff (_snapPointThis vectorDiff _snapPointNeighbour);
-_pos = [_pos # 0, _pos # 1, (getposASL _neighbour) # 2];
+//_pos = [_pos # 0, _pos # 1, (getposASL _neighbour) # 2];
 //systemChat format["pos found %1",_pos];
 
 [_object, _pos] call FUNC(setPosASL);
