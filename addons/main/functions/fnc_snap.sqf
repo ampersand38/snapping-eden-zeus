@@ -39,7 +39,7 @@ _snapPointsThis = _snapPointsThis apply {_object modelToWorldVisual _x};
 
 private _nearbyObjects = nearestObjects [_object, _types, (boundingBox _object select 2) * 2.5];
 _nearbyObjects = _nearbyObjects - [_object];
-if (_nearbyObjects isEqualTo []) exitWith {};
+if (_nearbyObjects isEqualTo []) exitWith {systemChat "no neighbours"};
 
 private _neighbour = _nearbyObjects # 0;
 private _pos = getposASL _object;
