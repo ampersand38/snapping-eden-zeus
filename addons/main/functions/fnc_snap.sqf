@@ -5,7 +5,7 @@
  *
  * Arguments:
  * 0: Object <OBJECT>
- * 1: Types <ARRAY> of strings for nearestObjects
+ * 1: Snap To <ARRAY|OBJECT> of strings for nearestObjects or target object
  * 2: Angle <NUMBER> angle snapping increment
  * 3: Mode <NUMBER> Mode for auto calculating snap points
  *
@@ -14,43 +14,61 @@
  *
  * Example:
  * [_object] call sez_main_fnc_snap
+ * [_object, _snapToObject] call sez_main_fnc_snap
  *
  * Public: No
  */
 
 params [
 	"_object",
-	["_types", ["Building"]],
+	["_snapTo", ["Building"], [[], objNull]],
 	["_angle", 90],
 	["_boundingBoxMode", BB_EDGEMIDPOINT]
 ];
 
+//systemChat str _this;
 // If there is another cargo platform nearby then try to snap to it
 // First we have to wait till dragging is completed
 if (is3DEN && {current3DENOperation != "" || {get3DENActionState "MoveGridToggle" == 0}}) exitWith {};
 
-if !(_object isKindOf "Building") exitWith {
-
-};
+if !(_object isKindOf "Building") exitWith {};
 
 private _snapPointsThis = [_object] call FUNC(getSnapPoints);
 if (_snapPointsThis isEqualTo []) exitWith {};
 _snapPointsThis = _snapPointsThis apply {_object modelToWorldVisual _x};
 
-private _nearbyObjects = nearestObjects [_object, _types, (boundingBox _object select 2) * 2.5];
-_nearbyObjects = _nearbyObjects - [_object];
-if (_nearbyObjects isEqualTo []) exitWith {systemChat "no neighbours"};
+private _nearbyObjects = if (_snapTo isEqualType []) then {
+    nearestObjects [_object, _snapTo, 50] - [_object];
+} else {
+    [_snapTo]
+};
 
-private _neighbour = _nearbyObjects # 0;
+if (_nearbyObjects isEqualTo []) exitWith {
+    systemChat "no neighbours";
+};
+
+private _minDistance = 1000;
+private _neighbour = objNull;
+private _snapPointThis = [];
+private _snapPointNeighbour = [];
+{
+    private _xObject = _x;
+    private _xSnapPoints = [_xObject] call FUNC(getSnapPoints) apply {_xObject modelToWorldVisual _x};
+
+    [_snapPointsThis, _xSnapPoints] call FUNC(nearestPair) params ["_snapPointObject", "_xSnapPoint", "_xDistance"];
+    _minDistance = _minDistance min _xDistance;
+
+    if (_xDistance < 1) then {
+        _neighbour = _xObject;
+        _snapPointNeighbour = _xSnapPoint;
+        _snapPointThis = _snapPointObject;
+        break;
+    };
+} forEach _nearbyObjects;
+
+if (isNull _neighbour) exitWith { systemChat format ["closest snap point %1", _minDistance]};
+
 private _pos = getposASL _object;
-
-private _snapPointsNeighbour = [_neighbour] call FUNC(getSnapPoints);
-if (_snapPointsNeighbour isEqualTo []) exitWith {};
-_snapPointsNeighbour = _snapPointsNeighbour apply {_neighbour modelToWorldVisual _x};
-
-[_snapPointsThis, _snapPointsNeighbour] call FUNC(nearestPair) params ["_snapPointThis", "_snapPointNeighbour"];
-
-if (_snapPointThis distance _snapPointNeighbour > 1) exitWith {};
 
 if (_angle > -1
 	&& {

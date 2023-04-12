@@ -18,6 +18,8 @@
 
 params ["_object", ["_boundingBoxMode", 0]];
 
+if (isNil "_object" || {!(_object isEqualType objNull)}) exitWith {[]};
+
 //if (isNil "snapPointsMap") then {snapPointsMap = createHashMap;};
 snapPointsMap getOrDefaultCall [typeOf _object, {
 	flatten (0 boundingBoxReal _object) params ["_x1", "_y1", "_z1", "_x2", "_y2"];

@@ -8,7 +8,9 @@
  * 1: List 2 <ARRAY> of points
  *
  * Return Value:
- * None
+ * 0: List 1 point
+ * 1: List 2 point
+ * 2: Nearest distance <NUMBER>
  *
  * Example:
  * [[_p1, _p2], [_p3, _p4]] call sez_main_fnc_nearestPair
@@ -17,6 +19,7 @@
  */
 
 params ["_list1", "_list2", ["_minDistance", 1000], ["_index1", 0], ["_index2", 0]];
+
 
 {
 	private _p1 = _x;
@@ -29,4 +32,4 @@ params ["_list1", "_list2", ["_minDistance", 1000], ["_index1", 0], ["_index2", 
 		_index2 = _forEachIndex;
 	} forEach _list2;
 } forEach _list1;
-[_list1 # _index1, _list2 # _index2]
+[_list1 # _index1, _list2 # _index2, _minDistance]
