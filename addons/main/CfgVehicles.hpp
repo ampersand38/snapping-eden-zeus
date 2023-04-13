@@ -1,8 +1,8 @@
 class EventHandlers;
 class CfgVehicles
 {
-    class Static;
-    class Building: Static
+    class All;
+    class Static: All
     {
         class EventHandlers: EventHandlers
         {

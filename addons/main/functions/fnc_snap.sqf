@@ -8,6 +8,8 @@
  * 1: Snap To <ARRAY|OBJECT> of strings for nearestObjects or target object
  * 2: Angle <NUMBER> angle snapping increment
  * 3: Mode <NUMBER> Mode for auto calculating snap points
+ *      BB_EDGEMIDPOINT 1
+ *      BB_CORNER 2
  *
  * Return Value:
  * None
@@ -21,7 +23,7 @@
 
 params [
 	"_object",
-	["_snapTo", ["Building"], [[], objNull]],
+	["_snapTo", ["Static"], [[], objNull]],
 	["_angle", 90],
 	["_boundingBoxMode", BB_EDGEMIDPOINT]
 ];
@@ -31,14 +33,14 @@ params [
 // First we have to wait till dragging is completed
 if (is3DEN && {current3DENOperation != "" || {get3DENActionState "MoveGridToggle" == 0}}) exitWith {};
 
-if !(_object isKindOf "Building") exitWith {};
+if !(_object isKindOf "Static") exitWith {};
 
 private _snapPointsThis = [_object] call FUNC(getSnapPoints);
 if (_snapPointsThis isEqualTo []) exitWith {};
 _snapPointsThis = _snapPointsThis apply {_object modelToWorldVisual _x};
 
 private _nearbyObjects = if (_snapTo isEqualType []) then {
-    nearestObjects [_object, _snapTo, 50] - [_object];
+    nearestObjects [_object, _snapTo, 50 max (((boundingBox _object) # 2) * 2.5)] - [_object];
 } else {
     [_snapTo]
 };
