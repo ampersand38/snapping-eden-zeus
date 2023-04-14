@@ -32,6 +32,7 @@ params [
 // If there is another cargo platform nearby then try to snap to it
 // First we have to wait till dragging is completed
 if (is3DEN && {current3DENOperation != "" || {get3DENActionState "MoveGridToggle" == 0}}) exitWith {};
+if (!isNull curatorCamera && {!shownCuratorCompass}) exitWith {};
 
 if !(_object isKindOf "Static") exitWith {};
 
@@ -75,7 +76,6 @@ private _pos = getposASL _object;
 if (_angle > -1
 	&& {
 		(is3DEN && {get3DENActionState "RotateGridToggle" == 1})
-		|| {!isNull curatorCamera && {shownCuratorCompass}}
 	}) then {
 	// Reconvert to model space due to dir change
 	_posModel = _object worldToModel _snapPointThis;
