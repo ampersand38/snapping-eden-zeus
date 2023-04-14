@@ -6,6 +6,8 @@ ADDON = false;
 
 #include "initSnapping.sqf"
 
+sez_curatorSnapAngleEnabled = true;
+
 ["ModuleCurator_F", "Init", {
     params ["_logic"];
 

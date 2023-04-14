@@ -59,23 +59,29 @@ private _snapPointNeighbour = [];
     private _xSnapPoints = [_xObject] call FUNC(getSnapPoints) apply {_xObject modelToWorldVisual _x};
 
     [_snapPointsThis, _xSnapPoints] call FUNC(nearestPair) params ["_snapPointObject", "_xSnapPoint", "_xDistance"];
-    _minDistance = _minDistance min _xDistance;
 
-    if (_xDistance < 1) then {
+    if (_xDistance < _minDistance) then {
+        _minDistance = _xDistance;
         _neighbour = _xObject;
         _snapPointNeighbour = _xSnapPoint;
         _snapPointThis = _snapPointObject;
-        break;
     };
 } forEach _nearbyObjects;
 
-if (isNull _neighbour) exitWith { systemChat format ["closest snap point %1", _minDistance]};
+if (_minDistance > 1) exitWith {
+    systemChat format ["closest snap point %1", _minDistance];
+    [
+        [_snapPointNeighbour, [1,0,0,1]],
+        [_snapPointThis, [1,0,0,1]]
+    ] call sez_main_fnc_drawHint;
+};
 
 private _pos = getposASL _object;
 
 if (_angle > -1
 	&& {
 		(is3DEN && {get3DENActionState "RotateGridToggle" == 1})
+        || {!isNull curatorCamera && sez_curatorSnapAngleEnabled}
 	}) then {
 	// Reconvert to model space due to dir change
 	_posModel = _object worldToModel _snapPointThis;
@@ -113,7 +119,7 @@ _pos = _pos vectorDiff (_snapPointThis vectorDiff _snapPointNeighbour);
 if ((getPos _neighbour # 2) < 0.1
     && {
         (is3DEN && {get3DENActionState "SurfaceSnapToggle" == 1})
-        || {!isNull curatorCamera}
+        || {!isNull curatorCamera && {sez_curatorSnapAngleEnabled}}
     }
 ) then {
 	private _height = getPos _object # 2;
@@ -121,18 +127,9 @@ if ((getPos _neighbour # 2) < 0.1
 	[_object, _pos] call FUNC(setPosASL);
 };
 
-if (isNil "snap_hint_ids") then {snap_hint_ids = [];} else { {removeMissionEventHandler ["Draw3D", _x # 0];} forEach snap_hint_ids; snap_hint_ids = []; };
-private _id = addMissionEventHandler ["Draw3D",{
-	if (time > snap_hint_time) exitWith {removeMissionEventHandler [_thisEvent, _thisEventHandler];};
-	{
-		drawIcon3D [
-			"a3\ui_f\data\Map\MarkerBrushes\cross_ca.paa",
-			[1,_forEachIndex,0,1],
-			_x,
-			1,1,0,""
-		];
-	} forEach (snap_hint_ids select (snap_hint_ids find _thisEventHandler) select 1);
-}];
-snap_hint_ids pushBack [_id, [_snapPointNeighbour, _snapPointThis]];
-snap_hint_time = time + 3;
+[
+    [_snapPointNeighbour, [0,1,0,1]],
+    [_snapPointThis, [1,1,0,1]]
+] call sez_main_fnc_drawHint;
+
 //systemChat format["nearby objects %1 %2 snap point %3",_neighbour,_object distance _neighbour,_snapPointsThis];
