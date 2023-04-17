@@ -3,7 +3,8 @@ class UserActionsConflictGroups {
         GVAR(ActionGroup)[] = {
             QGVAR(toggleSnapping),
             QGVAR(toggleRotation),
-            QGVAR(toggleTerrain)
+            QGVAR(toggleTerrain),
+            QGVAR(OpenAttributes)
         };
     };
 

@@ -7,7 +7,8 @@ class UserActionGroups
 		group[] = { // List of all actions inside this category.
             QGVAR(toggleSnapping),
             QGVAR(toggleRotation),
-            QGVAR(toggleTerrain)
+            QGVAR(toggleTerrain),
+            QGVAR(OpenAttributes)
         };
 	};
 };

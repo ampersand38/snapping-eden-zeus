@@ -4,6 +4,7 @@ class CfgDefaultKeysPresets {
             GVAR(toggleSnapping)[] = {};
             GVAR(toggleRotation)[] = {};
             GVAR(toggleTerrain)[] = {};
+            GVAR(OpenAttributes)[] = {};
 		};
 	};
 };

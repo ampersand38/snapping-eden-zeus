@@ -14,4 +14,9 @@ class CfgUserActions {
         tooltip = "";
         onActivate = QUOTE([KEY_TERRAIN] call FUNC(handleInputToggle));		// _this is always true.
     };
+    class GVAR(OpenAttributes) { // This class name is used for internal representation and also for the inputAction command.
+        displayName = "Open Attributes";
+        tooltip = "";
+        onActivate = "do3DENAction 'OpenAttributes';";		// _this is always true.
+    };
 };
