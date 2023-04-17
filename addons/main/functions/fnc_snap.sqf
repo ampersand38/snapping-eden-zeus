@@ -30,7 +30,10 @@ params [
 
 if (is3DEN && {current3DENOperation != ""}) exitWith {};
 
-    systemChat str _this;
+if (isFilePatchingEnabled) then {
+    call COMPILE_FILE(initSnapping);
+};
+
 if (sez_setting_useKeybinds && {!sez_snappingenabled}) exitWith {};
 if (!sez_setting_useKeybinds && {
     (is3DEN && {current3DENOperation != "" || {get3DENActionState "MoveGridToggle" == 0}})
