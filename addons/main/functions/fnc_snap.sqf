@@ -28,11 +28,14 @@ params [
 	["_boundingBoxMode", BB_EDGEMIDPOINT]
 ];
 
-//systemChat str _this;
-// If there is another cargo platform nearby then try to snap to it
-// First we have to wait till dragging is completed
-if (is3DEN && {current3DENOperation != "" || {get3DENActionState "MoveGridToggle" == 0}}) exitWith {};
-if (!isNull curatorCamera && {!shownCuratorCompass}) exitWith {};
+if (is3DEN && {current3DENOperation != ""}) exitWith {};
+
+    systemChat str _this;
+if (sez_setting_useKeybinds && {!sez_snappingenabled}) exitWith {};
+if (!sez_setting_useKeybinds && {
+    (is3DEN && {current3DENOperation != "" || {get3DENActionState "MoveGridToggle" == 0}})
+    || {!isNull curatorCamera && {!shownCuratorCompass}}
+}) exitWith {};
 
 if !(_object isKindOf "Static") exitWith {};
 
@@ -80,9 +83,15 @@ private _pos = getposASL _object;
 
 if (_angle > -1
 	&& {
-		(is3DEN && {get3DENActionState "RotateGridToggle" == 1})
-        || {!isNull curatorCamera && sez_curatorSnapAngleEnabled}
-	}) then {
+        (sez_setting_useKeybinds && {sez_rotationenabled})
+        || {
+            !sez_setting_useKeybinds && {
+        		(is3DEN && {get3DENActionState "RotateGridToggle" == 1})
+                || {!isNull curatorCamera && sez_curatorSnapAngleEnabled}
+            }
+        }
+	}
+) then {
 	// Reconvert to model space due to dir change
 	_posModel = _object worldToModel _snapPointThis;
 
@@ -117,10 +126,15 @@ _pos = _pos vectorDiff (_snapPointThis vectorDiff _snapPointNeighbour);
 
 // Snap to angled surface
 if ((getPos _neighbour # 2) < 0.1
-    && {
-        (is3DEN && {get3DENActionState "SurfaceSnapToggle" == 1})
-        || {!isNull curatorCamera && {sez_curatorSnapAngleEnabled}}
-    }
+	&& {
+        (sez_setting_useKeybinds && {sez_terrainenabled})
+        || {
+            !sez_setting_useKeybinds && {
+        		(is3DEN && {get3DENActionState "SurfaceSnapToggle" == 1})
+                || {!isNull curatorCamera && sez_curatorSnapAngleEnabled}
+            }
+        }
+	}
 ) then {
 	private _height = getPos _object # 2;
 	_pos = _pos vectorAdd [0, 0, -_height];

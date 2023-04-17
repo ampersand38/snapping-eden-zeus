@@ -15,3 +15,7 @@
 #endif
 
 #include "\z\sez\addons\main\script_macros.hpp"
+
+#define KEY_SNAPPING 0
+#define KEY_ROTATION 1
+#define KEY_TERRAIN 2

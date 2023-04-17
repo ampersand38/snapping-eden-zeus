@@ -4,6 +4,11 @@ ADDON = false;
 
 #include "XEH_PREP.hpp"
 
+sez_snappingenabled = false;
+sez_rotationenabled = false;
+sez_terrainenabled = false;
+
+#include "initSettings.sqf"
 #include "initSnapping.sqf"
 
 sez_curatorSnapAngleEnabled = true;

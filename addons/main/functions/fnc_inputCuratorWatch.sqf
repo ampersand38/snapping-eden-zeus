@@ -14,7 +14,7 @@
  * Public: No
  */
 
-if (isNull curatorCamera || {!shownCuratorCompass}) exitWith {};
+if (sez_setting_useKeybinds || {isNull curatorCamera} || {!shownCuratorCompass}) exitWith {};
 sez_curatorSnapAngleEnabled = !sez_curatorSnapAngleEnabled;
 
 ["Snapping",

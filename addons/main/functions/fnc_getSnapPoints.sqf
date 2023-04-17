@@ -28,9 +28,9 @@ snapPointsMap getOrDefaultCall [typeOf _object, {
 	if (_boundingBoxMode == 0) then {
 		_boundingBoxMode = [BB_CORNER, BB_EDGEMIDPOINT] select (_xSize < 1 || {_ySize < 1});
 	};
+    systemChat format ["%1: auto %2", typeOf _object, [0, "midpoints", "corners"] select _boundingBoxMode];
 	switch (_boundingBoxMode) do {
 	    case (BB_EDGEMIDPOINT): {
-			systemChat "auto midpoint";
 			private _points = [];
 			if (_xSize > 0.5) then {
 				_points = _points + [
@@ -47,7 +47,6 @@ snapPointsMap getOrDefaultCall [typeOf _object, {
 			_points
 		};
 	    case (BB_CORNER): {
-			systemChat "auto corner";
 			[
  	   			[_x1, _y1, _z1],
  	   			[_x1, _y2, _z1],

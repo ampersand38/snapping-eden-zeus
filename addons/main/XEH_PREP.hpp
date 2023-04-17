@@ -3,6 +3,7 @@
 
 PREP(drawHint);
 PREP(getSnapPoints);
+PREP(handleInputToggle);
 PREP(inputCuratorWatch);
 PREP(nearestPair);
 PREP(setPosASL);
