@@ -63,6 +63,7 @@ private _snapPointNeighbour = [];
 {
     private _xObject = _x;
     private _xSnapPoints = [_xObject] call FUNC(getSnapPoints) apply {_xObject modelToWorldVisual _x};
+    if (_xSnapPoints isEqualTo []) then {continue;};
 
     [_snapPointsThis, _xSnapPoints] call FUNC(nearestPair) params ["_snapPointObject", "_xSnapPoint", "_xDistance"];
 
@@ -73,6 +74,10 @@ private _snapPointNeighbour = [];
         _snapPointThis = _snapPointObject;
     };
 } forEach _nearbyObjects;
+
+if (_minDistance == 1000) exitWith {
+    systemChat "no neighbours";
+};
 
 if (_minDistance > 1) exitWith {
     systemChat format ["closest snap point %1", _minDistance];
