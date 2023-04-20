@@ -22,13 +22,13 @@ if (isNil "_object" || {!(_object isEqualType objNull)}) exitWith {[]};
 
 //if (isNil "snapPointsMap") then {snapPointsMap = createHashMap;};
 snapPointsMap getOrDefaultCall [typeOf _object, {
-	flatten (0 boundingBoxReal _object) params ["_x1", "_y1", "_z1", "_x2", "_y2"];
-	private _xSize = _x2 - _x1;
-	private _ySize = _y2 - _y1;
+	flatten (0 boundingBoxReal _object) params ["_x1", "_y1", "_z1", "_x2", "_y2", "_z2"];
 	if (_boundingBoxMode == 0) then {
-		_boundingBoxMode = [BB_CORNER, BB_EDGEMIDPOINT] select (_xSize < 1 || {_ySize < 1});
+		_boundingBoxMode = {_x} count [_x2 > 0.5, _y2 > 0.5];
 	};
-    systemChat format ["%1: auto %2", typeOf _object, [0, "midpoints", "corners"] select _boundingBoxMode];
+    if (_boundingBoxMode == 0) exitWith { [] };
+
+    systemChat format ["%1: auto %2", typeOf _object, ["none", "midpoints", "corners"] select _boundingBoxMode];
 	switch (_boundingBoxMode) do {
 	    case (BB_EDGEMIDPOINT): {
 			private _points = [];
@@ -51,8 +51,12 @@ snapPointsMap getOrDefaultCall [typeOf _object, {
  	   			[_x1, _y1, _z1],
  	   			[_x1, _y2, _z1],
  	   			[_x2, _y1, _z1],
- 	   			[_x2, _y2, _z1]
+ 	   			[_x2, _y2, _z1],
+ 	   			[_x1, _y1, _z2],
+ 	   			[_x1, _y2, _z2],
+ 	   			[_x2, _y1, _z2],
+ 	   			[_x2, _y2, _z2]
  	   		]
 		};
 	};
-}, true]
+}, true];
