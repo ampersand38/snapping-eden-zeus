@@ -10,6 +10,10 @@ For each of 3 intersecting planes,
     Copy (Ctrl + C) to log the plane
 Once you have 3 entries, the watch field will show the object model coordinates of
 the point of intersection
+
+Test the points by updating the snap points of an object class like so:
+
+snapPointsMap set [typeOf _obj, [_pt1, _pt2,...]];
 */
 
 sez_fnc_getVehicle = {get3DENSelected "object" # 0};
