@@ -22,7 +22,7 @@ params ["_object", ["_boundingBoxMode", 0]];
 if (isNil "_object" || {!(_object isEqualType objNull)}) exitWith {[]};
 
 //if (isNil "snapPointsMap") then {snapPointsMap = createHashMap;};
-snapPointsMap getOrDefaultCall [typeOf _object, {
+snapPointsMap getOrDefaultCall [toLower typeOf _object, {
     private _selections = (_object selectionNames LOD_MEMORY) select {"snap" in _x} apply {_object selectionPosition [_x, LOD_MEMORY]};
     if (!isNil "_selections" && {_selections isNotEqualTo []}) then { _boundingBoxMode = BB_MEMORYPOINTS };
 
@@ -32,7 +32,7 @@ snapPointsMap getOrDefaultCall [typeOf _object, {
 	};
     if (_boundingBoxMode == 0) exitWith { [] };
 
-    systemChat format ["%1: auto %2", typeOf _object, ["none", "midpoints", "corners"] select _boundingBoxMode];
+    systemChat format ["%1: auto %2", typeOf _object, ["none", "midpoints", "corners", "mempts"] select _boundingBoxMode];
 	switch (_boundingBoxMode) do {
 	    case (BB_EDGEMIDPOINT): {
 			private _points = [];
