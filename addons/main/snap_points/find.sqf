@@ -27,7 +27,7 @@ sez_fnc_intersect3Planes = {
     ) vectorMultiply (1/(_v1 vectorDotProduct (_v2 vectorCrossProduct _v3)))
 };
 
-add3DENEventHandler ["OnCut",{
+sez_fnc_onCut = {
     sez_points = [];
     sez_normals = [];
     sez_intersection = [];
@@ -44,7 +44,8 @@ add3DENEventHandler ["OnCut",{
     	] param [0, []];
     	if (_in  isEqualTo []) exitWith {};
 
-    	_in params ["_posASL", "_vn"];
+        sez_intersection = _in;
+    	_in params ["_posASL", "_vn", "_intersectObject", "_parentObject"];
         private _pos = ASLToAGL _posASL;
         sez_point = (_v worldToModel _pos);
         sez_normal = (_v vectorworldToModel _vn);
@@ -63,17 +64,19 @@ add3DENEventHandler ["OnCut",{
             ];
         } forEach ( [_v] call sez_main_fnc_getSnapPoints);
     }];
-}];
+};
+add3DENEventHandler ["OnCut",{call sez_fnc_onCut}];
 
-add3DENEventHandler ["OnCopy",{
-    if (is3DEN && {current3DENOperation != ""}) exitWith {};
-    sez_points pushBackUnique sez_point;
-    sez_normals pushBackUnique sez_normal;
-    if (count sez_points == 3) then {
-        sez_intersection = (sez_points + sez_normals) call sez_fnc_intersect3Planes;
-        copyToClipboard str sez_intersection;
-        systemChat str sez_intersection;
-    } else {
-        systemChat str count sez_points;
-    };
-}];
+sez_fnc_onCopy = {
+        if (is3DEN && {current3DENOperation != ""}) exitWith {};
+        sez_points pushBackUnique sez_point;
+        sez_normals pushBackUnique sez_normal;
+        if (count sez_points == 3) then {
+            sez_intersection = (sez_points + sez_normals) call sez_fnc_intersect3Planes;
+            copyToClipboard str sez_intersection;
+            systemChat str sez_intersection;
+        } else {
+            systemChat str count sez_points;
+        };
+};
+add3DENEventHandler ["OnCopy",{call sez_fnc_onCopy}];
