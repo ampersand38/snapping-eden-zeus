@@ -43,7 +43,7 @@ if (!sez_setting_useKeybinds && {
 if !(_object isKindOf "Static") exitWith {};
 
 private _snapPointsThis = [_object] call FUNC(getSnapPoints);
-if (_snapPointsThis isEqualTo []) exitWith {};
+if (_snapPointsThis isEqualTo []) exitWith {systemChat "no snap points";};
 _snapPointsThis = _snapPointsThis apply {_object modelToWorldVisual _x};
 
 private _nearbyObjects = if (_snapTo isEqualType []) then {
@@ -53,7 +53,7 @@ private _nearbyObjects = if (_snapTo isEqualType []) then {
 };
 
 if (_nearbyObjects isEqualTo []) exitWith {
-    systemChat "no neighbours";
+    systemChat "no neighbour objects";
 };
 
 private _minDistance = 1000;
@@ -63,7 +63,8 @@ private _snapPointNeighbour = [];
 {
     private _xObject = _x;
     private _xSnapPoints = [_xObject] call FUNC(getSnapPoints) apply {_xObject modelToWorldVisual _x};
-    if (_xSnapPoints isEqualTo []) then {continue;};
+    systemChat str [[_xObject] call FUNC(getSnapPoints)];
+    if (isNil "_xSnapPoints" || {_xSnapPoints isEqualTo []}) then {continue;};
 
     [_snapPointsThis, _xSnapPoints] call FUNC(nearestPair) params ["_snapPointObject", "_xSnapPoint", "_xDistance"];
 
@@ -76,7 +77,7 @@ private _snapPointNeighbour = [];
 } forEach _nearbyObjects;
 
 if (_minDistance == 1000) exitWith {
-    systemChat "no neighbours";
+    systemChat "no neighbour snap points";
 };
 
 if (_minDistance > 1) exitWith {

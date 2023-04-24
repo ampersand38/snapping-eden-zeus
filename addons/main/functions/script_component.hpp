@@ -2,3 +2,4 @@
 
 #define BB_EDGEMIDPOINT 1
 #define BB_CORNER 2
+#define BB_MEMORYPOINTS 3

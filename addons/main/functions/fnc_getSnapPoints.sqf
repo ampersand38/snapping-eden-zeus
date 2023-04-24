@@ -16,12 +16,16 @@
  * Public: No
  */
 
+#define LOD_MEMORY 1e15
 params ["_object", ["_boundingBoxMode", 0]];
 
 if (isNil "_object" || {!(_object isEqualType objNull)}) exitWith {[]};
 
 //if (isNil "snapPointsMap") then {snapPointsMap = createHashMap;};
 snapPointsMap getOrDefaultCall [typeOf _object, {
+    private _selections = (_object selectionNames LOD_MEMORY) select {"snap" in _x} apply {_object selectionPosition [_x, LOD_MEMORY]};
+    if (!isNil "_selections" && {_selections isNotEqualTo []}) then { _boundingBoxMode = BB_MEMORYPOINTS };
+
 	flatten (0 boundingBoxReal _object) params ["_x1", "_y1", "_z1", "_x2", "_y2", "_z2"];
 	if (_boundingBoxMode == 0) then {
 		_boundingBoxMode = {_x} count [_x2 > 0.5, _y2 > 0.5];
@@ -58,5 +62,8 @@ snapPointsMap getOrDefaultCall [typeOf _object, {
  	   			[_x2, _y2, _z2]
  	   		]
 		};
+        case (BB_MEMORYPOINTS): {
+            _selections
+        };
 	};
 }, true];
