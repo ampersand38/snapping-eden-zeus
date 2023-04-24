@@ -63,7 +63,6 @@ private _snapPointNeighbour = [];
 {
     private _xObject = _x;
     private _xSnapPoints = [_xObject] call FUNC(getSnapPoints) apply {_xObject modelToWorldVisual _x};
-    systemChat str [[_xObject] call FUNC(getSnapPoints)];
     if (isNil "_xSnapPoints" || {_xSnapPoints isEqualTo []}) then {continue;};
 
     [_snapPointsThis, _xSnapPoints] call FUNC(nearestPair) params ["_snapPointObject", "_xSnapPoint", "_xDistance"];
