@@ -21,6 +21,7 @@
  * Public: No
  */
 
+#define SNAPPING_DISTANCE 2
 params [
 	"_object",
 	["_snapTo", ["Static"], [[], objNull]],
@@ -57,29 +58,36 @@ if (_nearbyObjects isEqualTo []) exitWith {
 };
 
 private _minDistance = 1000;
-private _neighbour = objNull;
-private _snapPointThis = [];
-private _snapPointNeighbour = [];
+private _neighbourInfo = [];
 {
     private _xObject = _x;
-    private _xSnapPoints = [_xObject] call FUNC(getSnapPoints) apply {_xObject modelToWorldVisual _x};
+
+    private _xSnapPoints = [_xObject] call FUNC(getSnapPoints);
+    //systemChat str _xSnapPoints;
+    _xSnapPoints = _xSnapPoints apply {_xObject modelToWorldVisualWorld _x};
     if (isNil "_xSnapPoints" || {_xSnapPoints isEqualTo []}) then {continue;};
 
-    [_snapPointsThis, _xSnapPoints] call FUNC(nearestPair) params ["_snapPointObject", "_xSnapPoint", "_xDistance"];
+    private _xInfo = [_snapPointsThis, _xSnapPoints] call FUNC(nearestPair);
+    _xInfo params ["_xDistance"];
 
     if (_xDistance < _minDistance) then {
         _minDistance = _xDistance;
-        _neighbour = _xObject;
-        _snapPointNeighbour = _xSnapPoint;
-        _snapPointThis = _snapPointObject;
+        _neighbourInfo = [_xObject] + _xInfo;
     };
 } forEach _nearbyObjects;
+
+_neighbourInfo params ["_neighbour",
+    "_minDistance", "_snapPointThis", "_snapPointNeighbour",
+    "_minDistance_2", "_snapPointThis_2", "_snapPointNeighbour_2"
+];
+
+//systemChat str ["dist", _minDistance, _minDistance_2];
 
 if (_minDistance == 1000) exitWith {
     systemChat "no neighbour snap points";
 };
 
-if (_minDistance > 1) exitWith {
+if (_minDistance > SNAPPING_DISTANCE) exitWith {
     systemChat format ["closest snap point %1", _minDistance];
     [
         [_snapPointNeighbour, [1,0,0,1]],
@@ -87,9 +95,33 @@ if (_minDistance > 1) exitWith {
     ] call sez_main_fnc_drawHint;
 };
 
-private _pos = getposASL _object;
+private _isTwoPOints = _minDistance_2 < SNAPPING_DISTANCE &&
+    {(_snapPointThis distance _snapPointThis_2)
+    - (_snapPointNeighbour distance _snapPointNeighbour_2)
+    < 0.01};
+
+if (_isTwoPOints) then {
+    //systemChat str ["two points"];
+	// Reconvert to model space due to dir change
+	_posModel = _object worldToModel _snapPointThis;
+
+    private _dirNeighbour = _snapPointNeighbour getDir _snapPointNeighbour_2;
+    private _dirSnapPoints = _snapPointThis getDir _snapPointThis_2;
+    private _dir = getDir _object + _dirNeighbour - _dirSnapPoints;
+
+    if (is3DEN) then {
+        _object set3DENAttribute ["rotation", [0, 0, _dir]];
+    } else {
+        _object setDir _dir;
+    };
+	// Recalc position in case direction was changed
+	_snapPointThis = _object modelToWorldVisualWorld _posModel;
+};
+
+private _pos = getPosASL _object;
 
 if (_angle > -1
+    && {!_isTwoPOints}
 	&& {
         (sez_setting_useKeybinds && {sez_rotationenabled})
         || {
@@ -122,7 +154,7 @@ if (_angle > -1
         _object setDir _dir;
     };
 	// Recalc position in case direction was changed
-	_snapPointThis = _object modelToWorldVisual _posModel;
+	_snapPointThis = _object modelToWorldVisualWorld _posModel;
 };
 
 // Transform position
