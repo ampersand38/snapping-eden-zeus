@@ -64,7 +64,7 @@ private _neighbourInfo = [];
 
     private _xSnapPoints = [_xObject] call FUNC(getSnapPoints);
     //systemChat str _xSnapPoints;
-    _xSnapPoints = _xSnapPoints apply {_xObject modelToWorldVisualWorld _x};
+    _xSnapPoints = _xSnapPoints apply {_xObject modelToWorldVisual _x};
     if (isNil "_xSnapPoints" || {_xSnapPoints isEqualTo []}) then {continue;};
 
     private _xInfo = [_snapPointsThis, _xSnapPoints] call FUNC(nearestPair);
@@ -115,7 +115,7 @@ if (_isTwoPOints) then {
         _object setDir _dir;
     };
 	// Recalc position in case direction was changed
-	_snapPointThis = _object modelToWorldVisualWorld _posModel;
+	_snapPointThis = _object modelToWorldVisual _posModel;
 };
 
 private _pos = getPosASL _object;
@@ -154,7 +154,7 @@ if (_angle > -1
         _object setDir _dir;
     };
 	// Recalc position in case direction was changed
-	_snapPointThis = _object modelToWorldVisualWorld _posModel;
+	_snapPointThis = _object modelToWorldVisual _posModel;
 };
 
 // Transform position
