@@ -43,13 +43,25 @@ snapPointsMap getOrDefaultCall [toLower typeOf _object, {
 				_points = _points + [
 					[_x1, _y1, _z1] vectorAdd [_x1, _y2, _z1] vectorMultiply 0.5,
 					[_x2, _y1, _z1] vectorAdd [_x2, _y2, _z1] vectorMultiply 0.5
-			    ]
+			    ];
+    			if (abs _z2 > SIDE_LENGTH) then {
+    				_points = _points + [
+    					[_x1, _y1, _z2] vectorAdd [_x1, _y2, _z2] vectorMultiply 0.5,
+    					[_x2, _y1, _z2] vectorAdd [_x2, _y2, _z2] vectorMultiply 0.5
+    			    ];
+    			};
 			};
 			if (abs _y2 > SIDE_LENGTH) then {
 				_points = _points + [
 					[_x1, _y1, _z1] vectorAdd [_x2, _y1, _z1] vectorMultiply 0.5,
 					[_x1, _y2, _z1] vectorAdd [_x2, _y2, _z1] vectorMultiply 0.5
-			    ]
+			    ];
+    			if (abs _z2 > SIDE_LENGTH) then {
+    				_points = _points + [
+    					[_x1, _y1, _z2] vectorAdd [_x2, _y1, _z2] vectorMultiply 0.5,
+    					[_x1, _y2, _z2] vectorAdd [_x2, _y2, _z2] vectorMultiply 0.5
+    			    ];
+    			};
 			};
             //systemChat str _points;
 			_points
