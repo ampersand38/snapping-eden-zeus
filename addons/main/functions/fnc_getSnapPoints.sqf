@@ -31,7 +31,7 @@ snapPointsMap getOrDefaultCall [toLower typeOf _object, {
 	if (_boundingBoxMode == 0) then {
 		_boundingBoxMode = {_x} count [abs _x2 > SIDE_LENGTH, abs _y2 > SIDE_LENGTH];
 	};
-    systemChat str [_boundingBoxMode, time, _x2, _y2];
+    //systemChat str [_boundingBoxMode, time, _x2, _y2];
     //systemChat str ["_boundingBoxMode", _boundingBoxMode];
     if (_boundingBoxMode == 0) exitWith { [] };
 

@@ -1,6 +1,7 @@
 class UserActionsConflictGroups {
     class ActionGroups {
         GVAR(ActionGroup)[] = {
+            QGVAR(snapSelectedToCursor),
             QGVAR(toggleSnapping),
             QGVAR(toggleRotation),
             QGVAR(toggleTerrain),

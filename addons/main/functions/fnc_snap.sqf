@@ -21,10 +21,10 @@
  * Public: No
  */
 
-#define SNAPPING_DISTANCE 2
 params [
 	"_object",
 	["_snapTo", ["Static"], [[], objNull]],
+	["_distance", 2],
 	["_angle", 90],
 	["_boundingBoxMode", BB_EDGEMIDPOINT]
 ];
@@ -41,7 +41,7 @@ if (!sez_setting_useKeybinds && {
     || {!isNull curatorCamera && {!shownCuratorCompass}}
 }) exitWith {};
 
-if !(_object isKindOf "Static") exitWith {};
+if !(toLower typeOf _object in snapPointsMap || {_object isKindOf "Static"}) exitWith {};
 
 private _snapPointsThis = [_object] call FUNC(getSnapPoints);
 if (_snapPointsThis isEqualTo []) exitWith {systemChat "no snap points";};
@@ -87,7 +87,7 @@ if (_minDistance == 1000) exitWith {
     systemChat "no neighbour snap points";
 };
 
-if (_minDistance > SNAPPING_DISTANCE) exitWith {
+if (_distance > 0 && {_minDistance > _distance}) exitWith {
     systemChat format ["closest snap point %1", _minDistance];
     [
         [_snapPointNeighbour, [1,0,0,1]],
@@ -95,7 +95,7 @@ if (_minDistance > SNAPPING_DISTANCE) exitWith {
     ] call sez_main_fnc_drawHint;
 };
 
-private _isTwoPOints = _minDistance_2 < SNAPPING_DISTANCE &&
+private _isTwoPOints = _distance > 0 && {_minDistance_2 < _distance} &&
     {(_snapPointThis distance _snapPointThis_2)
     - (_snapPointNeighbour distance _snapPointNeighbour_2)
     < 0.01};

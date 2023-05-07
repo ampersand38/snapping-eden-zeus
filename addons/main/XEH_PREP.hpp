@@ -8,3 +8,4 @@ PREP(inputCuratorWatch);
 PREP(nearestPair);
 PREP(setPosASL);
 PREP(snap);
+PREP(snapSelectedToCursor);

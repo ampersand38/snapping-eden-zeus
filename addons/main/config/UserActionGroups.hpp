@@ -5,6 +5,7 @@ class UserActionGroups
 		name = "Snapping for Eden and Zeus"; // Display name of your category.
 		isAddon = 1;
 		group[] = { // List of all actions inside this category.
+            QGVAR(snapSelectedToCursor),
             QGVAR(toggleSnapping),
             QGVAR(toggleRotation),
             QGVAR(toggleTerrain),
