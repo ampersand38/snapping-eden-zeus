@@ -1,4 +1,6 @@
 /*
+call compile preProcessFileLineNumbers "z\sez\addons\main\snap_points\find.sqf"
+
 In editor, run entire script in Debug Console.
 Add Watch fields:
     [sez_points, sez_normals]
