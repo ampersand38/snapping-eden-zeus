@@ -108,6 +108,7 @@ if (_isTwoPOints) then {
     private _dirNeighbour = _snapPointNeighbour getDir _snapPointNeighbour_2;
     private _dirSnapPoints = _snapPointThis getDir _snapPointThis_2;
     private _dir = getDir _object + _dirNeighbour - _dirSnapPoints;
+    //systemChat str _dir;
 
     if (is3DEN) then {
         _object set3DENAttribute ["rotation", [0, 0, _dir]];
@@ -181,9 +182,18 @@ if ((getPos _neighbour # 2) < 0.1
 	[_object, _pos] call FUNC(setPosASL);
 };
 
-[
-    [_snapPointNeighbour, [0,1,0,1]],
-    [_snapPointThis, [1,1,0,1]]
-] call sez_main_fnc_drawHint;
+if (_isTwoPOints) then {
+    [
+        [_snapPointNeighbour, [0,1,0,1]],
+        [_snapPointThis, [1,1,0,1]],
+        [_snapPointNeighbour_2, [0,1,0,1]],
+        [_snapPointThis_2, [1,1,0,1]]
+    ] call sez_main_fnc_drawHint;
+} else {
+    [
+        [_snapPointNeighbour, [0,1,0,1]],
+        [_snapPointThis, [1,1,0,1]]
+    ] call sez_main_fnc_drawHint;
+};
 
 //systemChat format["nearby objects %1 %2 snap point %3",_neighbour,_object distance _neighbour,_snapPointsThis];
