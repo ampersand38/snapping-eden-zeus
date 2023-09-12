@@ -70,15 +70,47 @@ sez_fnc_onCut = {
 add3DENEventHandler ["OnCut",{call sez_fnc_onCut}];
 
 sez_fnc_onCopy = {
-        if (is3DEN && {current3DENOperation != ""}) exitWith {};
-        sez_points pushBackUnique sez_point;
-        sez_normals pushBackUnique sez_normal;
-        if (count sez_points == 3) then {
-            sez_intersection = (sez_points + sez_normals) call sez_fnc_intersect3Planes;
-            copyToClipboard str sez_intersection;
-            systemChat str sez_intersection;
-        } else {
-            systemChat str count sez_points;
-        };
+    if (is3DEN && {current3DENOperation != ""}) exitWith {};
+    sez_points pushBackUnique sez_point;
+    sez_normals pushBackUnique sez_normal;
+    if (count sez_points == 3) then {
+        sez_intersection = (sez_points + sez_normals) call sez_fnc_intersect3Planes;
+        copyToClipboard str sez_intersection;
+        systemChat str sez_intersection;
+    } else {
+        systemChat str count sez_points;
+    };
 };
 add3DENEventHandler ["OnCopy",{call sez_fnc_onCopy}];
+
+sez_fnc_drawSnapPoints = {
+    get3DENSelected "object" params ["_obj1", "_obj2"];
+    // Points
+    {
+        private _xObject = _x;
+        {
+            if true then {
+                drawIcon3D [
+                    "a3\ui_f\data\Map\MarkerBrushes\cross_ca.paa",
+                    [1,1,1,1],
+                    _xObject modelToWorldVisual _x,
+                    1,1,0,
+                    ""
+                ];
+            };
+        } forEach ([_x] call sez_main_fnc_getSnapPoints);
+    } forEach [_obj1, _obj2];
+
+    // Nearest
+    private _snapPointsWorld = [_obj1, _obj2] apply {
+        private _xObject = _x;
+        ([_xObject] call sez_main_fnc_getSnapPoints) apply {
+            _xObject modelToWorldVisual _x
+        };
+    };
+    _snapPointsWorld call sez_main_fnc_nearestPair params [
+        "", ["_pt1", [0,0,0]], ["_pt2", [0,0,0]]];
+    drawLine3D [_pt1, _pt2, [1,0,0,1]];
+};
+if (isNil "sez_ids") then {sez_ids = [];} else { {removeMissionEventHandler ["Draw3D", _x];} forEach sez_ids };
+sez_ids pushBack addMissionEventHandler ["Draw3D",{call sez_fnc_drawSnapPoints}];
