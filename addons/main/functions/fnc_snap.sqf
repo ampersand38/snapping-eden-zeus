@@ -41,7 +41,7 @@ if (!sez_setting_useKeybinds && {
     || {!isNull curatorCamera && {!shownCuratorCompass}}
 }) exitWith {};
 
-if !(toLower typeOf _object in snapPointsMap || {_object isKindOf "Static"}) exitWith {};
+if !(toLower typeOf _object in sez_snapPointsMap || {_object isKindOf "Static"}) exitWith {};
 
 private _snapPointsThis = [_object] call FUNC(getSnapPoints);
 if (_snapPointsThis isEqualTo []) exitWith {systemChat "no snap points";};

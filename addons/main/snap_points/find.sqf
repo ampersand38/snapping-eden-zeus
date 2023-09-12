@@ -15,7 +15,7 @@ the point of intersection
 
 Test the points by updating the snap points of an object class like so:
 
-snapPointsMap set [typeOf _obj, [_pt1, _pt2,...]];
+sez_snapPointsMap set [typeOf _obj, [_pt1, _pt2,...]];
 */
 
 sez_fnc_getVehicle = {get3DENSelected "object" # 0};
