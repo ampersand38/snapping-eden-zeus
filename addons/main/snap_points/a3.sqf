@@ -1,3 +1,5 @@
+// add this to initSnapping.sqf
+// type names must converted to lower case
 
 ["land_airport_02_hangar_left_f",[[18.0366,21.082,-7.2405]]],
 ["land_airport_02_hangar_right_f",[[-17.8467,21.0791,-7.25816]]],
