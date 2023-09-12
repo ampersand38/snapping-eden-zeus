@@ -1,0 +1,19 @@
+name = "Snapping Eden Zeus"
+prefix = "sez"
+mainprefix = "z"
+
+[properties]
+author = "Ampersand"
+url = "https://github.com/ampersand38/snapping-eden-zeus"
+
+[files]
+include = [
+    "AUTHORS.txt",
+    "LICENSE",
+    "logo_ampersand_ca.paa",
+    "mod.cpp",
+    "README.md"
+]
+
+[asc]
+enabled = true

@@ -10,5 +10,4 @@ releases/*
 keys/*
 .hemtt/local
 *.exe
-*.blend
-*.blend1
+.hemttout

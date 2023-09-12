@@ -5,8 +5,9 @@
 
 #include "script_version.hpp"
 
-#define VERSION MAJOR.MINOR.PATCHLVL.BUILD
+#define VERSION MAJOR.MINOR
 #define VERSION_AR MAJOR,MINOR,PATCHLVL,BUILD
+#define VERSION_CONFIG version = VERSION; versionStr = QUOTE(MAJOR.MINOR.PATCHLVL-BUILD); versionAr[] = {VERSION_AR}
 
 #define SEZ_TAG SEZ
 
