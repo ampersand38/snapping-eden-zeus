@@ -1,4 +1,5 @@
 sez_snapPointsMap = createHashMapFromArray [
+    #include "snap_points\Arganiny.sqf"
     #include "snap_points\cup.sqf"
     #include "snap_points\LV426.sqf"
     #include "snap_points\RegalisSCP_CB.sqf"
