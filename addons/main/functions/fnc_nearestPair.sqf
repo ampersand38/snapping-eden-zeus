@@ -4,41 +4,62 @@
  * Returns the nearest pair of points from the given 2 lists.
  *
  * Arguments:
- * 0: List 1 <ARRAY> of points
- * 1: List 2 <ARRAY> of points
+ * 0: List A <ARRAY> of points
+ * 1: List B <ARRAY> of points
  *
  * Return Value:
- * 0: List 1 point
- * 1: List 2 point
- * 2: Nearest distance <NUMBER>
+ * 0: Nearest distance <NUMBER>
+ * 1: List A point <ARRAY>
+ * 2: List B point <ARRAY>
+ * 3: Second nearest distance <NUMBER>
+ * 4: Second List A point <ARRAY>
+ * 5: Second List B point <ARRAY>
  *
  * Example:
  * [[_p1, _p2], [_p3, _p4]] call sez_main_fnc_nearestPair
+ * [[_p1, _p2], [_p3, _p4]] call sez_main_fnc_nearestPair params ["", "_pt1", "_pt2"];
  *
  * Public: No
  */
 
-params ["_list1", "_list2", ["_minDistance", 1000], ["_index1", 0], ["_index2", 0], ["_minDistance_2", 1000], ["_index1_2", 0], ["_index2_2", 0]];
+params [
+    "_listA", "_listB",
+    // private variables
+    ["_minDistance", 1000], ["_indexA", 0], ["_indexB", 0],
+    ["_minDistance_2", 1000], ["_indexA_2", 0], ["_indexB_2", 0]
+];
 
 {
-	private _p1 = _x;
-	private _i1 = _forEachIndex;
-	{
-		private _d = _p1 distance _x;
-        if (_d > _minDistance_2) then {continue;};
+    private _xPointA = _x;
+    private _xIndexA = _forEachIndex;
+    {
+        private _xDistance = _xPointA distance _x;
+        if (_xDistance < _minDistance) then {
+            _minDistance_2 = _minDistance;
+            _indexA_2 = _indexA;
+            _indexB_2 = _indexB;
+            _minDistance = _xDistance;
+            _indexA = _xIndexA;
+            _indexB = _forEachIndex; // _xIndexB
+            continue;
+        };
 
-        //systemChat str [[_i1, _forEachIndex], _d, _minDistance, _minDistance_2];
-		_minDistance_2 = _minDistance;
-		_index1_2 = _index1;
-		_index2_2 = _index2;
-		_minDistance = _d;
-		_index1 = _i1;
-		_index2 = _forEachIndex;
-        //systemChat str ["pair", [_i1, _forEachIndex], _d, _minDistance, _minDistance_2, _index1_2, _index2_2];
-	} forEach _list2;
-} forEach _list1;
+        if (_xDistance > _minDistance_2) then {
+            _minDistance_2 = _xDistance;
+            _indexA_2 = _xIndexA;
+            _indexB_2 = _forEachIndex;
+        };
+    } forEach _listB;
+} forEach _listA;
+
+if false exitWith {
+    [
+        0, _listA # 0, _listB # 0,
+        0, _listA # 1, _listB # 1
+    ]
+};
 
 [
-    _minDistance, _list1 # _index1, _list2 # _index2,
-    _minDistance_2, _list1 # _index1_2, _list2 # _index2_2
+    _minDistance, _listA # _indexA, _listB # _indexB,
+    _minDistance_2, _listA # _indexA_2, _listB # _indexB_2
 ]
