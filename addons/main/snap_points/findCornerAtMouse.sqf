@@ -26,7 +26,7 @@ sez_fnc_intersect3Planes = {
 sez_fnc_findCornerAtMouse = {
     params [
         ["_maxRadius", 2],
-        ["_lod", "FIRE"]
+        ["_lod", "PHYSX"]
     ];
 
     sez_point = [];
@@ -56,7 +56,7 @@ sez_fnc_findCornerAtMouse = {
         private _mousePos = AGLToASL screenToWorld getMousePosition;
         private _in = lineIntersectsSurfaces [
             _camPos, _mousePos,
-            objNull, objNull, true, 1, _lod, "NONE"
+            objNull, objNull, true, 1, _lod, "FIRE"
         ] param [0, []];
         if (_in isEqualTo []) exitWith {};
 
@@ -95,39 +95,34 @@ sez_ids pushBack [["OnCopy", add3DENEventHandler ["OnCut",{
     [] call sez_fnc_resetEH;
 }]], {remove3DENEventHandler _this}];
 
-sez_ids pushBack [["OnWidgetNone", add3DENEventHandler ["OnWidgetNone",{
+sez_fnc_add = {
+    params ["_index"];
 
     if (sez_point isNotEqualTo []) then {
-        sez_points set [0, sez_point];
-        sez_normals set [0, sez_normal];
+        sez_points set [_index, sez_point];
+        sez_normals set [_index, sez_normal];
     };
     if (count sez_points == 3) then {
         sez_pos3Planes = (sez_points + sez_normals) call sez_fnc_intersect3Planes;
         sez_corner = (sez_object worldToModelVisual sez_pos3Planes);
+
+        if (toLower typeOf sez_object in sez_snapPointsMap) then {
+            copyToClipboard str sez_corner;
+        } else {
+            copyToClipboard str [toLower typeOf sez_object,[sez_corner]];
+        };
     };
 
+};
+
+sez_ids pushBack [["OnWidgetNone", add3DENEventHandler ["OnWidgetNone",{
+    [0] call sez_fnc_add;
 }]], {remove3DENEventHandler _this}];
 
 sez_ids pushBack [["OnWidgetTranslation", add3DENEventHandler ["OnWidgetTranslation",{
-
-    if (sez_point isNotEqualTo []) then {
-        sez_points set [1, sez_point];
-        sez_normals set [1, sez_normal];
-    };
-    if (count sez_points == 3) then {
-        sez_pos3Planes = (sez_points + sez_normals) call sez_fnc_intersect3Planes;
-        sez_corner = (sez_object worldToModelVisual sez_pos3Planes);
-    };
+    [1] call sez_fnc_add;
 }]], {remove3DENEventHandler _this}];
 
 sez_ids pushBack [["OnWidgetRotation", add3DENEventHandler ["OnWidgetRotation",{
-
-    if (sez_point isNotEqualTo []) then {
-        sez_points set [2, sez_point];
-        sez_normals set [2, sez_normal];
-    };
-    if (count sez_points == 3) then {
-        sez_pos3Planes = (sez_points + sez_normals) call sez_fnc_intersect3Planes;
-        sez_corner = (sez_object worldToModelVisual sez_pos3Planes);
-    };
+    [2] call sez_fnc_add;
 }]], {remove3DENEventHandler _this}];
