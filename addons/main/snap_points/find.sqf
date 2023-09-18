@@ -109,8 +109,13 @@ sez_fnc_drawSnapPoints = {
         };
     };
     _snapPointsWorld call sez_main_fnc_nearestPair params [
-        "", ["_pt1", [0,0,0]], ["_pt2", [0,0,0]]];
+        "", ["_pt1", [0,0,0]], ["_pt2", [0,0,0]],
+        "", ["_pt3", [0,0,0]], ["_pt4", [0,0,0]]
+    ];
     drawLine3D [_pt1, _pt2, [1,0,0,1]];
+    drawLine3D [_pt3, _pt4, [1,0,1,1]];
 };
-if (isNil "sez_ids") then {sez_ids = [];} else { {removeMissionEventHandler ["Draw3D", _x];} forEach sez_ids };
-sez_ids pushBack addMissionEventHandler ["Draw3D",{call sez_fnc_drawSnapPoints}];
+
+sez_ids pushBack [["Draw3D", addMissionEventHandler ["Draw3D",{
+    call sez_fnc_drawSnapPoints
+}]], {removeMissionEventHandler _this}];
