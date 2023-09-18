@@ -44,7 +44,7 @@ params [
             continue;
         };
 
-        if (_xDistance > _minDistance_2) then {
+        if (_xDistance < _minDistance_2) then {
             _minDistance_2 = _xDistance;
             _indexA_2 = _xIndexA;
             _indexB_2 = _forEachIndex;

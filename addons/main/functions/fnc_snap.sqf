@@ -95,13 +95,14 @@ if (_distance > 0 && {_minDistance > _distance}) exitWith {
     ] call sez_main_fnc_drawHint;
 };
 
+//systemChat str [(_snapPointThis distance _snapPointThis_2), (_snapPointNeighbour distance _snapPointNeighbour_2)];
 private _isTwoPOints = _distance > 0 && {_minDistance_2 < _distance} &&
-    {(_snapPointThis distance _snapPointThis_2)
-    - (_snapPointNeighbour distance _snapPointNeighbour_2)
-    < 0.01};
+    {abs((_snapPointThis distance _snapPointThis_2)
+    - (_snapPointNeighbour distance _snapPointNeighbour_2))
+    < 0.1};
 
 if (_isTwoPOints) then {
-    //systemChat str ["two points"];
+    systemChat str "two points";
 	// Reconvert to model space due to dir change
 	_posModel = _object worldToModel _snapPointThis;
 
