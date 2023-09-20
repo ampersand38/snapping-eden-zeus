@@ -1,5 +1,8 @@
 /*
+// Run:
 call compile preProcessFileLineNumbers "z\sez\addons\main\snap_points\findCornerAtMouse.sqf"
+// Watch:
+[toLower typeOf sez_object,[sez_corner]]
 */
 
 sez_fnc_resetEH = {
@@ -11,6 +14,16 @@ sez_fnc_resetEH = {
     sez_ids = [];
 };
 [] call sez_fnc_resetEH;
+
+sez_fnc_vectorMean = {
+    _v = [0,0,0];
+    {
+        _v = _v vectorAdd _x;
+    } forEach _this;
+    _r = _v vectorMultiply (1/count _this);
+    copyToClipboard str _r;
+    _r
+};
 
 sez_fnc_getSelected = {get3DENSelected "object" param [0, objNull]};
 
@@ -26,7 +39,7 @@ sez_fnc_intersect3Planes = {
 sez_fnc_findCornerAtMouse = {
     params [
         ["_maxRadius", 2],
-        ["_lod", "PHYSX"]
+        ["_lod", "GEOM"]
     ];
 
     sez_point = [];
@@ -53,9 +66,11 @@ sez_fnc_findCornerAtMouse = {
 
     //if (count sez_points < 3) then {
         private _camPos = AGLToASL positionCameraToWorld [0, 0, 0];
+        private _camPos2 = AGLToASL positionCameraToWorld [0, 0, 1000];
         private _mousePos = AGLToASL screenToWorld getMousePosition;
+        private _pos2 = if (_camPos2 # 2 > _camPos # 2) then {_mousePos} else {_camPos2};
         private _in = lineIntersectsSurfaces [
-            _camPos, _mousePos,
+            _camPos, _camPos2,
             objNull, objNull, true, 1, _lod, "FIRE"
         ] param [0, []];
         if (_in isEqualTo []) exitWith {};
@@ -98,6 +113,12 @@ sez_ids pushBack [["OnCopy", add3DENEventHandler ["OnCut",{
 sez_fnc_add = {
     params ["_index"];
 
+    if (sez_object != _intersectObject) then {
+        sez_object = _intersectObject;
+        sez_points = [];
+        sez_normals = [];
+    };
+
     if (sez_point isNotEqualTo []) then {
         sez_points set [_index, sez_point];
         sez_normals set [_index, sez_normal];
@@ -106,10 +127,13 @@ sez_fnc_add = {
         sez_pos3Planes = (sez_points + sez_normals) call sez_fnc_intersect3Planes;
         sez_corner = (sez_object worldToModelVisual sez_pos3Planes);
 
-        if (toLower typeOf sez_object in sez_snapPointsMap) then {
+        if (toLower typeOf sez_object in sez_snapPointsMap
+            || {getText (configOf sez_object >> "model") in sez_snapPointsMap}
+        ) then {
             copyToClipboard str sez_corner;
         } else {
-            copyToClipboard str [toLower typeOf sez_object,[sez_corner]];
+            //copyToClipboard str [toLower typeOf sez_object,[sez_corner]];
+            copyToClipboard str [getText (configOf sez_object >> "model"),[sez_corner]];
         };
     };
 
