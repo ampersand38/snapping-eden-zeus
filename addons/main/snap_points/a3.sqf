@@ -1,5 +1,11 @@
-// add this to initSnapping.sqf
+// add this to initsnapping.sqf
 // type names must converted to lower case
+
+// spearhead 44
+["\ww2\spe_structures\military\trenches\spe_cnc_trench_45_int.p3d",[[3.75,0.5,1.5],[3.75,-1.5,1.5],[-2.37146,3.03528,1.5],[-3.78564,1.62097,1.5]]],
+["\ww2\spe_structures\military\trenches\spe_cnc_trench_45_ext.p3d",[[3.75,-0.5,1.5],[3.75,1.5,1.5],[-1.66418,3.74268,1.5],[-3.07874,2.32825,1.5]]],
+
+// sog pf
 
 ["\vn\structures_f_vietnam_02\usaf\fort\vn_usaf_revetment_1_01.p3d",[[0.735107,2.86548,4.83233],[-0.735107,-1.56299,4.83233],[-0.735107,1.99048,4.83233],[0.735107,1.99048,4.83233],[0.735107,1.99048,9.63211e-005],[-0.735107,1.99048,9.63211e-005],[-0.735107,-1.56299,9.63211e-005],[0.735107,-1.56299,9.63211e-005]]],
 ["\vn\structures_f_vietnam_02\usaf\fort\vn_usaf_revetment_1_02.p3d",[[0.735107,2.86548,4.83233],[-0.735107,-1.56299,4.83233],[-0.735107,1.99048,4.83233],[0.735107,1.99048,4.83233],[0.735107,1.99048,9.63211e-005],[-0.735107,1.99048,9.63211e-005],[-0.735107,-1.56299,9.63211e-005],[0.735107,-1.56299,9.63211e-005]]],
@@ -41,7 +47,7 @@
 ["vn\env_assets_f_vietnam\bridges\bridge_daumau\vn_daumau_bridge_01",[[-2,-14.8584,8.47399],[2.53003,-16.8102,8.72399]]],
 ["vn\env_assets_f_vietnam\bridges\bridge_daumau\vn_daumau_bridge_02",[[2,-9.29712,8.46895],[-2.00024,-9.12268,8.46895],[2.53027,7.69031,8.72399],[-1.99951,9.64552,8.46899]]],
 ["vn\env_assets_f_vietnam\bridges\bridge_daumau\vn_daumau_bridge_03",[[-1.91553,15.3793,8.47399],[2.08398,15.2054,8.47399]]],
-["vn\env_assets_f_vietnam\bridges\bridge_daumau\vn_daumau_bridge_02_B",[[2,-7.90002,8.47399],[-2,-7.90002,8.47399],[-2,7.90002,8.47399],[2,7.90002,8.47399]]],
+["vn\env_assets_f_vietnam\bridges\bridge_daumau\vn_daumau_bridge_02_b",[[2,-7.90002,8.47399],[-2,-7.90002,8.47399],[-2,7.90002,8.47399],[2,7.90002,8.47399]]],
 
 ["\vn\structures_f_vietnam_02\usarmy\fort\vn_b_trench_20_01.p3d",[[-9.76099,0.746338,1.51675],[-9.96201,-0.885742,1.51667],[10.4607,0.74646,1.52472],[10.4607,-0.885864,1.52472]]],
 ["\vn\structures_f_vietnam_02\usarmy\fort\vn_b_trench_45_01.p3d",[[4.69409,2.24001,1.52472],[3.28882,3.27007,1.52472],[-4.59863,-1.73413,1.52472],[-4.59888,-0.074585,1.52472]]],
@@ -57,9 +63,9 @@
 ["\vn\vn_structures_f_exp\infrastructure\bridges\vn_bridgewooden_01_f.p3d",[[0,-10.0134,0.218763],[0,10.0134,0.218763]]],
 ["\vn\vn_structures_f_exp\infrastructure\bridges\vn_bridgewooden_01_pillar_f.p3d",[[0,0,6.10461]]],
 ["\vn\vn_structures_f_exp\infrastructure\bridges\vn_bridgesea_01_f.p3d",[[0,-24.0475,-1.22064],[0,23.9198,-1.22064]]],
-["\vn\vn_structures_f_exp\infrastructure\bridges\vn_bridgeSea_01_pillar_f.p3d",[[0,0,19.7321]]],
+["\vn\vn_structures_f_exp\infrastructure\bridges\vn_bridgesea_01_pillar_f.p3d",[[0,0,19.7321]]],
 ["\vn\vn_structures_f_exp\infrastructure\bridges\vn_bridgesea_01_ramp_up_f.p3d",[[-0.0401599,-12.0186,-1.21072],[-0.04028,12.003,-2.52142]]],
-["\vn\vn_structures_f_exp\infrastructure\bridges\vn_bridgeSea_01_ramp_f.p3d",[[0.00562,-24.0479,0.278803],[0.00585997,23.9128,-4.00482]]],
+["\vn\vn_structures_f_exp\infrastructure\bridges\vn_bridgesea_01_ramp_f.p3d",[[0.00562,-24.0479,0.278803],[0.00585997,23.9128,-4.00482]]],
 ["\vn\vn_structures_f_exp\infrastructure\bridges\vn_bridgesea_01_ramp_down_f.p3d",[[-0.039305,-12.0442,-1.22113],[-0.0394299,11.9548,-2.53185]]],
 
 ["\vn\env_assets_f_vietnam\bridges\bridge_hanoi\vn_bridge_road_hanoi_07",[[-0.744141,-15.949,0.473464],[0.747803,-15.949,0.473464],[-0.744141,8.08203,0.473464],[0.747559,8.08203,0.473464]]],
@@ -74,7 +80,7 @@
 ["\vn\vn_structures_f_enoch\infrastructure\bridges\vn_bridge_asphalt_02_center_f.p3d",[[-5.37354,-12.1306,3.00959],[5.37354,-12.1306,3.00959],[5.37354,12.144,3.01057],[-5.37354,12.144,3.01057]]],
 ["\vn\vn_structures_f_enoch\infrastructure\bridges\vn_bridge_asphalt_02_left_f.p3d",[[-5.39038,-15.708,3.0096],[5.35669,-15.708,3.0096]]],
 
-["\vn\env_assets_f_vietnam\bridges\bridge_hue\vn_bridge_road_hue_01B",[[-3.48853,-15.0003,-4.41163],[3.51147,-15.0003,-4.41163]]],
+["\vn\env_assets_f_vietnam\bridges\bridge_hue\vn_bridge_road_hue_01b",[[-3.48853,-15.0003,-4.41163],[3.51147,-15.0003,-4.41163]]],
 
 ["land_airport_02_hangar_left_f",[[18.0366,21.082,-7.2405]]],
 ["land_airport_02_hangar_right_f",[[-17.8467,21.0791,-7.25816]]],
