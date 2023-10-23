@@ -2,7 +2,7 @@
 // Run:
 call compile preProcessFileLineNumbers "z\sez\addons\main\snap_points\findCornerAtMouse.sqf"
 // Watch:
-[toLower typeOf sez_object,[sez_corner]]
+[toLower getText (configOf sez_object >> "model"),[sez_corner]]
 */
 
 sez_fnc_resetEH = {
@@ -113,12 +113,6 @@ sez_ids pushBack [["OnCopy", add3DENEventHandler ["OnCut",{
 sez_fnc_add = {
     params ["_index"];
 
-    if (sez_object != _intersectObject) then {
-        sez_object = _intersectObject;
-        sez_points = [];
-        sez_normals = [];
-    };
-
     if (sez_point isNotEqualTo []) then {
         sez_points set [_index, sez_point];
         sez_normals set [_index, sez_normal];
@@ -128,12 +122,12 @@ sez_fnc_add = {
         sez_corner = (sez_object worldToModelVisual sez_pos3Planes);
 
         if (toLower typeOf sez_object in sez_snapPointsMap
-            || {getText (configOf sez_object >> "model") in sez_snapPointsMap}
+            || {toLower getText (configOf sez_object >> "model") in sez_snapPointsMap}
         ) then {
             copyToClipboard str sez_corner;
         } else {
             //copyToClipboard str [toLower typeOf sez_object,[sez_corner]];
-            copyToClipboard str [getText (configOf sez_object >> "model"),[sez_corner]];
+            copyToClipboard str [toLower getText (configOf sez_object >> "model"),[sez_corner]];
         };
     };
 

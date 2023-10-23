@@ -7,11 +7,16 @@
 ["land_imp_cathedral_gothic_junction1",[[16.25,0,-19],[-16.25,0,-19],[0,16.25,-19],[0,-16.25,-19]]],
 
 // TIOW
-["land_tunnel_4",[[0,5.79333,-2.71757],[0,-5.79333,-2.71757],[5.79333,0,-2.71757],[-5.79333,0,-2.71757]]],
-["land_tunnel_room_2",[[1.69849,-10.1222,-2.42298],[-3.00098,9.93573,-2.42298]]],
-["land_tunnel_room_2_empty",[[1.69849,-10.1222,-2.42298],[-3.00098,9.93573,-2.42298]]],
-["tunnel_corner",[[9.83687,-4.94483,-2.87351],[-4.22546,10.1681,-2.87351]]],
-["land_tunnel_long",[[0,-7.01331,-2.21186],[0,7.01331,-2.21186]]],
+["\whobjects3\super_assets\military\tunnel_4\tunnel_4.p3d",[[0,5.79333,-2.71757],[0,-5.79333,-2.71757],[5.79333,0,-2.71757],[-5.79333,0,-2.71757]]],
+["\whobjects3\super_assets\military\tunnel_room_2\tunnel_room_2.p3d",[[1.69849,-10.1222,-2.42298],[-3.00098,9.93573,-2.42298]]],
+["\whobjects3\super_assets\military\tunnel_room_2\tunnel_room_2_empty\tunnel_room_2_empty.p3d",[[1.69849,-10.1222,-2.42298],[-3.00098,9.93573,-2.42298]]],
+["\whobjects3\super_assets\military\tunnel_corner\tunnel_corner.p3d",[[9.83687,-4.94483,-2.87351],[-4.22546,10.1681,-2.87351]]],
+["\whobjects3\super_assets\military\tunnel_long\tunnel_long.p3d",[[0,-7.01331,-2.21186],[0,7.01331,-2.21186]]],
+
+["\whobjects\buildings\skyshield\tiow_skyshield_walkway_corner.p3d",[[-5.43311,5.58565,3.03106],[5.43311,5.58565,3.03106],[5.43304,-5.58565,3.03106],[-5.43304,-5.58565,3.03106]]],
+["\whobjects\buildings\skyshield\tiow_skyshield_walkway_short.p3d",[[-7.12372,-5.5462,2.9716],[7.12372,-5.5462,2.9716],[7.12372,5.5462,2.9716],[-7.12372,5.5462,2.9716]]],
+["\whobjects\buildings\skyshield\tiow_skyshield_walkway_medium.p3d",[[-14.4404,5.5462,2.9716],[-14.4404,-5.5462,2.9716],[14.621,-5.5462,2.9716],[14.621,5.54623,2.9716]]],
+["\whobjects\buildings\skyshield\tiow_skyshield_walkway_long.p3d",[[21.4916,-5.5462,2.9716],[21.4916,5.5462,2.9716],[-21.9697,5.5462,2.9716],[-21.9697,-5.5462,2.9716]]],
 
 // Re-Fortification
 ["gate_static",[[0,-15.1069,6.77847],[0,15.1069,6.77847]]],
