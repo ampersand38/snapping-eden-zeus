@@ -20,6 +20,7 @@
 
 params ["_mode"];
 
+if (!sez_setting_useKeybinds) exitWith {};
 if (!sez_snappingEnabled && {_mode > 0}) exitWith {};
 
 private _varName = [

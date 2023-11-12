@@ -1,6 +1,3 @@
-// testing, update fncs on the fly
-//#define PREP(var1) TRIPLES(ADDON,fnc,var1) = { call compile preProcessFileLineNumbers '\MAINPREFIX\PREFIX\SUBPREFIX\COMPONENT_F\functions\DOUBLES(fnc,var1).sqf' }
-
 PREP(drawHint);
 PREP(getSnapPoints);
 PREP(handleInputToggle);
@@ -9,3 +6,4 @@ PREP(nearestPair);
 PREP(setPosASL);
 PREP(snap);
 PREP(snapSelectedToCursor);
+PREP(vectorTo3DENRotation);

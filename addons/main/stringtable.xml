@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Project name="SEZ">
 	<Package name="Main">
-        <Key ID="STR_SEZ_Main_TandemJump">
-            <English>Tandem Jump</Original>
+        <Key ID="STR_SEZ_Main_SnappingforEdenandZeus">
+            <English>Snapping for Eden and Zeus</Original>
         </Key>
-        <Key ID="STR_SEZ_Main_cutLoweringLine">
-            <English>Cut Lowering Line</Original>
+        <Key ID="STR_SEZ_Main_SnappingToggle">
+            <English>Snapping Toggle</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_SnappingToggle_Tooltip">
+            <English>Toggle snapping on drag-and-drop.</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_RotationToggle">
+            <English>Rotation Toggle</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_RotationToggle_Tooltip">
+            <English>Toggle rotation behaviour. Moving object will match the static object direction at the nearest 90° increment.</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_TerrainToggle">
+            <English>Terrain Toggle</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_RotationToggle_Tooltip">
+            <English>Toggle terrain behaviour. Moving object will snap to terrain surface.</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_UseKeybinds">
+            <English>Use Keybinds</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_UseKeybinds_Tooltip">
+            <English>Use CBA keybinds instead of 3DEN widgets to toggle snapping, rotation, and terrain modes.</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_HintSnapping">
+            <English>Snapping</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_KeySnapToCursor">
+            <English>Snap to Cursor</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_KeySnapToCursor_Tooltip">
+            <English>Snap selected object to the object under the cursor.</Original>
+        </Key>
+        <Key ID="STR_SEZ_Main_KeyOpenAttributes_Tooltip">
+            <English>Open Eden Attributes diagloue for the selected entities.</Original>
         </Key>
 	</Package>
 </Project>
