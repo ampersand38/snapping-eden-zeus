@@ -1,26 +1,26 @@
 #include "script_component.hpp"
 /*
- * Author: Ampersand
- * Snap selected object to object under cursor.
- *
- * Arguments:
- * None
- *
- * Return Value:
- * None
- *
- * Example:
- * [] call sez_main_fnc_snapSelectedToCursor
- *
- * Public: No
- */
+* Author: Ampersand
+* Snap selected object to object under cursor.
+*
+* Arguments:
+* None
+*
+* Return Value:
+* None
+*
+* Example:
+* [] call sez_main_fnc_snapSelectedToCursor
+*
+* Public: No
+*/
 
 private _object = objNull;
 if (is3DEN) then {
-	_object = get3DENSelected "object" param [0, objNull];
+    _object = get3DENSelected "object" param [0, objNull];
 };
 if (!isNull curatorCamera) then {
-	_object = curatorSelected select 0 param [0, objNull];
+    _object = curatorSelected select 0 param [0, objNull];
 };
 
 if (isNull _object) exitWith {};

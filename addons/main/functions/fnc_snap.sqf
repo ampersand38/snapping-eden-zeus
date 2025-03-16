@@ -22,11 +22,11 @@
  */
 
 params [
-	"_object",
-	["_snapTo", ["Static"], [[], objNull]],
-	["_distance", 2],
-	["_angle", 90],
-	["_boundingBoxMode", BB_EDGEMIDPOINT]
+    "_object",
+    ["_snapTo", ["Static"], [[], objNull]],
+    ["_distance", 2],
+    ["_angle", 90],
+    ["_boundingBoxMode", BB_EDGEMIDPOINT]
 ];
 
 if (is3DEN && {current3DENOperation != ""}) exitWith {};
@@ -61,7 +61,7 @@ private _nearbyObjects = if (_snapTo isEqualType []) then {
 };
 
 if (_nearbyObjects isEqualTo []) exitWith {
-    systemChat "no neighbour objects";
+    //systemChat "no neighbour objects";
 };
 
 private _minDistance = 1000;
@@ -91,11 +91,11 @@ _neighbourInfo params ["_neighbour",
 //systemChat str ["dist", _minDistance, _minDistance_2];
 
 if (_minDistance == 1000) exitWith {
-    systemChat "no neighbour snap points";
+    //systemChat "no neighbour snap points";
 };
 
 if (_distance > 0 && {_minDistance > _distance}) exitWith {
-    systemChat format ["closest snap point %1", _minDistance];
+    //systemChat format ["closest snap point %1", _minDistance];
     [
         [_snapPointNeighbour, [1,0,0,1]],
         [_snapPointThis, [1,0,0,1]]
@@ -109,9 +109,9 @@ private _isTwoPOints = _distance > 0 && {_minDistance_2 < _distance} &&
     < 0.1};
 
 if (_isTwoPOints) then {
-    systemChat str "two points";
-	// Reconvert to model space due to dir change
-	_posModel = _object worldToModel _snapPointThis;
+    //systemChat str "two points";
+    // Reconvert to model space due to dir change
+    _posModel = _object worldToModel _snapPointThis;
 
     private _dirNeighbour = _snapPointNeighbour getDir _snapPointNeighbour_2;
     private _dirSnapPoints = _snapPointThis getDir _snapPointThis_2;
@@ -123,47 +123,47 @@ if (_isTwoPOints) then {
     } else {
         _object setDir _dir;
     };
-	// Recalc position in case direction was changed
-	_snapPointThis = _object modelToWorldVisual _posModel;
+    // Recalc position in case direction was changed
+    _snapPointThis = _object modelToWorldVisual _posModel;
 };
 
 private _pos = getPosASL _object;
 
 if (_angle > -1
     && {!_isTwoPOints}
-	&& {
+    && {
         (sez_setting_useKeybinds && {sez_rotationenabled})
         || {
             !sez_setting_useKeybinds && {
-        		(is3DEN && {get3DENActionState "RotateGridToggle" == 1})
+                (is3DEN && {get3DENActionState "RotateGridToggle" == 1})
                 || {!isNull curatorCamera && sez_curatorSnapAngleEnabled}
             }
         }
-	}
+    }
 ) then {
-	// Reconvert to model space due to dir change
-	_posModel = _object worldToModel _snapPointThis;
+    // Reconvert to model space due to dir change
+    _posModel = _object worldToModel _snapPointThis;
 
-	// Adjust direction
-	_dirTo		= getDir _neighbour - 360;
-	_dirObject	= getDir _object;
-	_dir		= _dirTo;
+    // Adjust direction
+    _dirTo = getDir _neighbour - 360;
+    _dirObject = getDir _object;
+    _dir = _dirTo;
 
-	for "_i" from 0 to 7 do
-	{
-		_dir = _dirTo + _i * 90;
-		if(abs(_dir - _dirObject) < 45)then
-		{
-			_i = 10;
-		};
-	};
+    for "_i" from 0 to 7 do
+    {
+        _dir = _dirTo + _i * 90;
+        if(abs(_dir - _dirObject) < 45)then
+        {
+            _i = 10;
+        };
+    };
     if (is3DEN) then {
         _object set3DENAttribute ["rotation", [0, 0, _dir]];
     } else {
         _object setDir _dir;
     };
-	// Recalc position in case direction was changed
-	_snapPointThis = _object modelToWorldVisual _posModel;
+    // Recalc position in case direction was changed
+    _snapPointThis = _object modelToWorldVisual _posModel;
 };
 
 // Transform position
@@ -175,19 +175,19 @@ _pos = _pos vectorDiff (_snapPointThis vectorDiff _snapPointNeighbour);
 
 // Snap to angled surface
 if ((getPos _neighbour # 2) < 0.1
-	&& {
+    && {
         (sez_setting_useKeybinds && {sez_terrainenabled})
         || {
             !sez_setting_useKeybinds && {
-        		(is3DEN && {get3DENActionState "SurfaceSnapToggle" == 1})
+                (is3DEN && {get3DENActionState "SurfaceSnapToggle" == 1})
                 || {!isNull curatorCamera && sez_curatorSnapAngleEnabled}
             }
         }
-	}
+    }
 ) then {
-	private _height = getPos _object # 2;
-	_pos = _pos vectorAdd [0, 0, -_height];
-	[_object, _pos] call FUNC(setPosASL);
+    private _height = getPos _object # 2;
+    _pos = _pos vectorAdd [0, 0, -_height];
+    [_object, _pos] call FUNC(setPosASL);
 };
 
 if (_isTwoPOints) then {

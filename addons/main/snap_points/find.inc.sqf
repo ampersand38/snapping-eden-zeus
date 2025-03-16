@@ -38,31 +38,31 @@ sez_fnc_onCut = {
 
     if (isNil "sez_ids") then {sez_ids = [];} else { {removeMissionEventHandler ["EachFrame", _x];} forEach sez_ids };
     sez_ids pushBack addMissionEventHandler ["EachFrame",{
-    	private _v = 0 call sez_fnc_getVehicle;
-    	private _in = lineIntersectsSurfaces [
+        private _v = 0 call sez_fnc_getVehicle;
+        private _in = lineIntersectsSurfaces [
             AGLToASL positionCameraToWorld [0,0,0],
-    		AGLToASL positionCameraToWorld [0,0,100],
-    		objNull, objNull, true, 1, "GEOM", "NONE"
-    	] param [0, []];
-    	if (_in  isEqualTo []) exitWith {};
+            AGLToASL positionCameraToWorld [0,0,100],
+            objNull, objNull, true, 1, "GEOM", "NONE"
+        ] param [0, []];
+        if (_in  isEqualTo []) exitWith {};
 
         sez_intersection = _in;
-    	_in params ["_posASL", "_vn", "_intersectObject", "_parentObject"];
+        _in params ["_posASL", "_vn", "_intersectObject", "_parentObject"];
         private _pos = ASLToAGL _posASL;
         sez_point = (_v worldToModel _pos);
         sez_normal = (_v vectorworldToModel _vn);
-    	drawLine3D [
+        drawLine3D [
             _pos,
             _pos vectorAdd _vn,
-    		[1,0,0,1]
+            [1,0,0,1]
         ];
 
         {
             drawIcon3D [
-            	"a3\ui_f\data\Map\MarkerBrushes\cross_ca.paa",
-            	[1,0,0,1],
-            	_v modelToWorld _x,
-            	1,1,0,str _x
+                "a3\ui_f\data\Map\MarkerBrushes\cross_ca.paa",
+                [1,0,0,1],
+                _v modelToWorld _x,
+                1,1,0,str _x
             ];
         } forEach ( [_v] call sez_main_fnc_getSnapPoints);
     }];

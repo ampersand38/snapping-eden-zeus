@@ -28,61 +28,61 @@ sez_snapPointsMap getOrDefaultCall [toLower getText (configOf _object >> "model"
     private _selections = (_object selectionNames LOD_MEMORY) select {"snap" in _x} apply {_object selectionPosition [_x, LOD_MEMORY]};
     if (!isNil "_selections" && {_selections isNotEqualTo []}) then { _boundingBoxMode = BB_MEMORYPOINTS };
 
-	flatten (0 boundingBoxReal _object) params ["_x1", "_y1", "_z1", "_x2", "_y2", "_z2"];
-	if (_boundingBoxMode == 0) then {
-		_boundingBoxMode = {_x} count [abs _x2 > SIDE_LENGTH, abs _y2 > SIDE_LENGTH];
-	};
+    flatten (0 boundingBoxReal _object) params ["_x1", "_y1", "_z1", "_x2", "_y2", "_z2"];
+    if (_boundingBoxMode == 0) then {
+        _boundingBoxMode = {_x} count [abs _x2 > SIDE_LENGTH, abs _y2 > SIDE_LENGTH];
+    };
     //systemChat str [_boundingBoxMode, time, _x2, _y2];
     //systemChat str ["_boundingBoxMode", _boundingBoxMode];
     if (_boundingBoxMode == 0) exitWith { [] };
 
-    systemChat format ["%1: auto %2", typeOf _object, ["none", "midpoints", "corners", "mempts"] select _boundingBoxMode];
-	switch (_boundingBoxMode) do {
-	    case (BB_EDGEMIDPOINT): {
-			private _points = [];
-			if (abs _x2 > SIDE_LENGTH) then {
-				_points = _points + [
-					[_x1, _y1, _z1] vectorAdd [_x1, _y2, _z1] vectorMultiply 0.5,
-					[_x2, _y1, _z1] vectorAdd [_x2, _y2, _z1] vectorMultiply 0.5
-			    ];
-    			if (abs _z2 > SIDE_LENGTH) then {
-    				_points = _points + [
-    					[_x1, _y1, _z2] vectorAdd [_x1, _y2, _z2] vectorMultiply 0.5,
-    					[_x2, _y1, _z2] vectorAdd [_x2, _y2, _z2] vectorMultiply 0.5
-    			    ];
-    			};
-			};
-			if (abs _y2 > SIDE_LENGTH) then {
-				_points = _points + [
-					[_x1, _y1, _z1] vectorAdd [_x2, _y1, _z1] vectorMultiply 0.5,
-					[_x1, _y2, _z1] vectorAdd [_x2, _y2, _z1] vectorMultiply 0.5
-			    ];
-    			if (abs _z2 > SIDE_LENGTH) then {
-    				_points = _points + [
-    					[_x1, _y1, _z2] vectorAdd [_x2, _y1, _z2] vectorMultiply 0.5,
-    					[_x1, _y2, _z2] vectorAdd [_x2, _y2, _z2] vectorMultiply 0.5
-    			    ];
-    			};
-			};
+    //systemChat format ["%1: auto %2", typeOf _object, ["none", "midpoints", "corners", "mempts"] select _boundingBoxMode];
+    switch (_boundingBoxMode) do {
+        case (BB_EDGEMIDPOINT): {
+            private _points = [];
+            if (abs _x2 > SIDE_LENGTH) then {
+                _points = _points + [
+                    [_x1, _y1, _z1] vectorAdd [_x1, _y2, _z1] vectorMultiply 0.5,
+                    [_x2, _y1, _z1] vectorAdd [_x2, _y2, _z1] vectorMultiply 0.5
+                ];
+                if (abs _z2 > SIDE_LENGTH) then {
+                    _points = _points + [
+                        [_x1, _y1, _z2] vectorAdd [_x1, _y2, _z2] vectorMultiply 0.5,
+                        [_x2, _y1, _z2] vectorAdd [_x2, _y2, _z2] vectorMultiply 0.5
+                    ];
+                };
+            };
+            if (abs _y2 > SIDE_LENGTH) then {
+                _points = _points + [
+                    [_x1, _y1, _z1] vectorAdd [_x2, _y1, _z1] vectorMultiply 0.5,
+                    [_x1, _y2, _z1] vectorAdd [_x2, _y2, _z1] vectorMultiply 0.5
+                ];
+                if (abs _z2 > SIDE_LENGTH) then {
+                    _points = _points + [
+                        [_x1, _y1, _z2] vectorAdd [_x2, _y1, _z2] vectorMultiply 0.5,
+                        [_x1, _y2, _z2] vectorAdd [_x2, _y2, _z2] vectorMultiply 0.5
+                    ];
+                };
+            };
             //systemChat str _points;
-			_points
-		};
-	    case (BB_CORNER): {
-			[
- 	   			[_x1, _y1, _z1],
- 	   			[_x1, _y2, _z1],
- 	   			[_x2, _y1, _z1],
- 	   			[_x2, _y2, _z1]
+            _points
+        };
+        case (BB_CORNER): {
+            [
+                [_x1, _y1, _z1],
+                [_x1, _y2, _z1],
+                [_x2, _y1, _z1],
+                [_x2, _y2, _z1]
             ] + ([[], [
- 	   			[_x1, _y1, _z2],
- 	   			[_x1, _y2, _z2],
- 	   			[_x2, _y1, _z2],
- 	   			[_x2, _y2, _z2]
- 	   		]] select (abs _z2 > SIDE_LENGTH))
-		};
+                [_x1, _y1, _z2],
+                [_x1, _y2, _z2],
+                [_x2, _y1, _z2],
+                [_x2, _y2, _z2]
+            ]] select (abs _z2 > SIDE_LENGTH))
+        };
         case (BB_MEMORYPOINTS): {
             _selections
         };
-	};
+    };
 }, true];
 }, true];
