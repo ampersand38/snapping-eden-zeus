@@ -23,8 +23,8 @@ params ["_object", ["_boundingBoxMode", 0]];
 if (isNil "_object" || {!(_object isEqualType objNull)}) exitWith { [] };
 
 //if (isNil "sez_snapPointsMap") then {sez_snapPointsMap = createHashMap;};
-sez_snapPointsMap getOrDefaultCall [toLower typeOf _object, {
 sez_snapPointsMap getOrDefaultCall [toLower getText (configOf _object >> "model"), {
+sez_snapPointsMap getOrDefaultCall [toLower typeOf _object, {
     private _selections = (_object selectionNames LOD_MEMORY) select {"snap" in _x} apply {_object selectionPosition [_x, LOD_MEMORY]};
     if (!isNil "_selections" && {_selections isNotEqualTo []}) then { _boundingBoxMode = BB_MEMORYPOINTS };
 
