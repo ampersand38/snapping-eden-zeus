@@ -1,6 +1,6 @@
 /*
 // Run:
-call compile preProcessFileLineNumbers "z\sez\addons\main\snap_points\findCornerAtMouse.sqf"
+call compile preProcessFileLineNumbers "z\sez\addons\main\snap_points\findCornerAtMouse.inc.sqf"
 // Watch:
 [toLower getText (configOf sez_object >> "model"),[sez_corner]]
 */
@@ -71,7 +71,7 @@ sez_fnc_findCornerAtMouse = {
         private _pos2 = if (_camPos2 # 2 > _camPos # 2) then {_mousePos} else {_camPos2};
         private _in = lineIntersectsSurfaces [
             _camPos, _camPos2,
-            objNull, objNull, true, 1, _lod, "FIRE"
+            objNull, objNull, true, 1, _lod, "VIEW"
         ] param [0, []];
         if (_in isEqualTo []) exitWith {};
 

@@ -1,5 +1,31 @@
 /*
-call compile preProcessFileLineNumbers "z\sez\addons\main\snap_points\findCornerAtCenter.sqf"
+call compile preProcessFileLineNumbers "z\sez\addons\main\snap_points\findCornerAtCenter.inc.sqf"
+
+// Add test points
+{
+    sez_snapPointsMap set _x;
+
+} forEach [
+
+["a3\structures_f\mil\bagfence\bagfence_corner_f.p3d",[[-0.626426,-0.498517,0],[-0.626426,0.498517,0],[0.626426,-0.498517,0],[0.626426,0.498517,0]]],
+["a3\structures_f\mil\bagfence\bagfence_short_f.p3d",[[-0.991786,-0.25,0],[-0.991786,0.25,0],[0.991786,-0.25,0],[0.991786,0.25,0]]],
+["a3\structures_f\mil\bagfence\bagfence_long_f.p3d",[[-1.56135,-0.25,0],[-1.56135,0.25,0],[1.56135,-0.25,0],[1.56135,0.25,0]]],
+["a3\structures_f\mil\bagfence\bagfence_round_f.p3d",[[1.59431,-0.00654522,0],[0.895297,0.70856,0],[-1.07709,0.617549,-0.205116],[-1.44573,0.195561,0.623152]]],
+["a3\structures_f\mil\bagfence\bagfence_end_f.p3d",[[-0.443938,-0.25,0],[-0.443938,0.25,0],[0.443937,-0.25,0],[0.443937,0.25,0]]]
+
+];
+
+// Bounding box
+_v = call amp_fnc_gv;
+boundingBox _v params ["_bb1", "_bb2"];
+_bb1 params ["_bb1x", "_bb1y"];
+_bb2 params ["_bb2x", "_bb2y"];
+copyToClipboard str [
+[_bb1x, _bb1y, 0],
+[_bb1x, _bb2y, 0],
+[_bb2x, _bb1y, 0],
+[_bb2x, _bb2y, 0]
+]
 */
 sez_fnc_getSelected = {get3DENSelected "object" param [0, objNull]};
 
@@ -93,12 +119,27 @@ drawIcon3D [_icon, [1, 1, 1, 0.35], ASLToAGL _posASL, 1, 1, 0, ""];
         _name = str _object;
     };
 
-    [_object, _pos3Planes]
+    [tolower getText (configOf _object >> "model"), _pos3Planes]
+};
+
+sez_fnc_drawSnapPoints = {
+     {
+        _obj = _x;
+        _icon = "a3\ui_f\data\Map\MarkerBrushes\cross_ca.paa";
+
+        _points = _obj call sez_main_fnc_getSnapPoints;
+
+        {
+            drawIcon3D [_icon, [1, 1, 1, 0.35], _obj modelToWorldVisual _x, 1, 1, 0, ""];
+
+        } forEach _points;
+     } forEach get3DENSelected "object";
 };
 
 if (isNil "sez_ids") then {sez_ids = [];} else {{removeMissionEventHandler _x;} forEach sez_ids;sez_ids = [];};
 sez_ids pushBack ["Draw3D", addMissionEventHandler ["Draw3D", {
     sez_corner = [] call sez_fnc_findCornerAtCenter;
+    [] call sez_fnc_drawSnapPoints;
 }]];
 
 add3DENEventHandler ["OnCut",{{removeMissionEventHandler _x;} forEach sez_ids;sez_ids = [];}];
