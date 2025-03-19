@@ -91,8 +91,17 @@
 ["land_airport_center_f",[[-12.932,-0.582031,-2.73131],[13.0855,-0.582031,-2.73131]]],
 ["land_airport_left_f",[[-6.58594,4.03516,-6.77377]]],
 
-["land_bagfence_long_f",[[-1.5,0,-0.458448],[1.5,0,-0.458448]]],
-["land_bagfence_short_f",[[-0.9,0,-0.45342],[0.9,0,-0.45342]]],
+["a3\structures_f\mil\bagfence\bagfence_corner_f.p3d",[[-0.626426,0,0],[-0.626426,0.5,0],[0.626426,-0.5,0],[0.126426,-0.5,0]]],
+["a3\structures_f\mil\bagfence\bagfence_short_f.p3d",[[-0.991786,-0.25,0],[-0.991786,0.25,0],[0.991786,-0.25,0],[0.991786,0.25,0]]],
+["a3\structures_f\mil\bagfence\bagfence_long_f.p3d",[[-1.56135,-0.25,0],[-1.56135,0.25,0],[1.56135,-0.25,0],[1.56135,0.25,0]]],
+["a3\structures_f\mil\bagfence\bagfence_end_f.p3d",[[-0.443938,-0.25,0],[-0.443938,0.25,0],[0.443937,-0.25,0],[0.443937,0.25,0]]],
+["a3\structures_f\mil\bagfence\bagfence_round_f.p3d",[[1.41956,0.172231,0],[1.06601,0.525784,0],[-1.09693,0.594828,0],[-1.45048,0.241275,0]]],
+
+["\a3\structures_f_exp\military\fortifications\bagfence_01_corner_green_f.p3d",[[-0.626426,0,0],[-0.626426,0.5,0],[0.626426,-0.5,0],[0.126426,-0.5,0]]],
+["\a3\structures_f_exp\military\fortifications\bagfence_01_short_green_f.p3d",[[-0.991786,-0.25,0],[-0.991786,0.25,0],[0.991786,-0.25,0],[0.991786,0.25,0]]],
+["\a3\structures_f_exp\military\fortifications\bagfence_01_long_green_f.p3d",[[-1.56135,-0.25,0],[-1.56135,0.25,0],[1.56135,-0.25,0],[1.56135,0.25,0]]],
+["\a3\structures_f_exp\military\fortifications\bagfence_01_end_green_f.p3d",[[-0.443938,-0.25,0],[-0.443938,0.25,0],[0.443937,-0.25,0],[0.443937,0.25,0]]],
+["\a3\structures_f_exp\military\fortifications\bagfence_01_round_green_f.p3d",[[1.41956,0.172231,0],[1.06601,0.525784,0],[-1.09693,0.594828,0],[-1.45048,0.241275,0]]],
 
 ["land_backalley_01_l_1m_f", [[-0.565,0,0],[0.565,0,0]]],
 ["land_backalley_01_l_gap_f", [[-1.555,0.001,0],[1.555,0.001,0]]],
@@ -155,6 +164,13 @@
 ["land_indpipe3_small_ground2_f",[[-2.64844,0.730469,3.25249],[2.64844,0.730469,3.25249]]],
 ["land_indpipe3_smalll_l_f",[[0.277344,2.58789,3.17736],[-2.11523,-0.867188,3.17736]]],
 ["land_indpipe3_smalll_r_f",[[-2.06055,1.96094,3.17736],[1.38281,-2.54492,3.17096]]],
+
+["\a3\structures_f\ind\pipes\indpipe1_20m_f.p3d",[[0,10,0],[0,-10,0]]], // offset to corner of footing [0.732294,-1.27826,-0.85213] vectorDiff [-0.408253,-0.3971,-0.852132]
+["\a3\structures_f\ind\pipes\indpipe1_ground_f.p3d",[[0,-1.53,0]]],
+["\a3\structures_f\ind\pipes\indpipe1_uup_f.p3d",[[0,3.74415,-1.62654],[0,-3.74415,-1.62654]]],
+["\a3\structures_f\ind\pipes\indpipe1_valve_f.p3d",[[-0.252744,2.88833,-0.215268],[-0.252744,-2.88833,-0.215268]]],
+["\a3\structures_f\ind\pipes\indpipe1_90degl_f.p3d",[[1.14055,-0.88116,0],[-0.34,1.49062,0]]],
+["\a3\structures_f\ind\pipes\indpipe1_90degr_f.p3d",[[-1.14055,-0.88116,0],[0.34,1.49062,0]]],
 
 ["land_mine_01_conveyor_begin_f",[[0.658203,-8.26758,1.66904]]],
 ["land_mine_01_conveyor_10m_f",[[0.667969,-4.99414,1.66661],[0.667969,5.00586,1.66661]]],
