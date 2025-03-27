@@ -113,6 +113,11 @@
 
 ["land_pipe_fence_4m_f", [[-2,0,0],[2,0,0]]],
 
+["\a3\structures_f_exp\walls\net\netfence_01_m_gate_f.p3d", [[-2.0,0,0],[2.0,0,0]]],
+["\a3\structures_f_exp\walls\net\netfence_01_m_d_f.p3d", [[-2.0,0,0],[1.97,0,0]]],
+["\a3\structures_f_exp\walls\net\netfence_01_m_4m_f.p3d", [[-2.0,0,0],[1.97,0,0]]],
+["\a3\structures_f_exp\walls\net\netfence_01_m_8m_f.p3d", [[-4.0,0,0],[3.98,0,0]]],
+
 ["land_cncwall1_f",[[0.645195,-0.316406,-1.84441],[-0.648125,-0.316406,-1.84441]]],
 ["land_cncwall4_f",[[-2.61297,-0.3125,-1.84441],[2.61199,-0.310547,-1.84441]]],
 
