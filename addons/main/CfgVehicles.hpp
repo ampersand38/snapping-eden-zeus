@@ -15,6 +15,8 @@ class CfgVehicles
         };
     };
 
+    // Removed due to causing mission dependency on sez_main
+    /*
     // Fix ACE overwrite https://github.com/acemod/ACE3/blob/master/addons/concertina_wire/CfgVehicles.hpp#L150
     class NonStrategic;
     class Land_Razorwire_F: NonStrategic {
@@ -25,4 +27,5 @@ class CfgVehicles
             };
         };
     };
+    */
 }; // CfgVehicles
