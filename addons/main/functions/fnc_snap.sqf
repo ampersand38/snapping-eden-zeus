@@ -55,6 +55,7 @@ if (_snapPointsThis isEqualTo []) exitWith {systemChat "no snap points";};
 _snapPointsThis = _snapPointsThis apply {_object modelToWorldVisual _x};
 
 private _nearbyObjects = if (_snapTo isEqualType []) then {
+    nearestTerrainObjects [_object, ["BUILDING", "BUNKER", "FENCE", "FORTRESS", "HOUSE", "MAIN ROAD", "POWER LINES", "QUAY", "RAILWAY", "ROAD", "ROCKS", "RUIN", "TRACK", "TRAIL", "WALL"], 50 max (((boundingBox _object) # 2) * 2.5)] +
     nearestObjects [_object, _snapTo, 50 max (((boundingBox _object) # 2) * 2.5)] - [_object];
 } else {
     [_snapTo]
