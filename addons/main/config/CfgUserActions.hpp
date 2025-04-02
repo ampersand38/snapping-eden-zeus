@@ -16,7 +16,7 @@ class CfgUserActions {
     };
     class GVAR(toggleTerrain) { // This class name is used for internal representation and also for the inputAction command.
         displayName = CSTRING(TerrainToggle);
-        tooltip = CSTRING(RotationToggle_Tooltip);
+        tooltip = CSTRING(TerrainToggle_Tooltip);
         onActivate = QUOTE([KEY_TERRAIN] call FUNC(handleInputToggle));		// _this is always true.
     };
     class GVAR(OpenAttributes) { // This class name is used for internal representation and also for the inputAction command.
