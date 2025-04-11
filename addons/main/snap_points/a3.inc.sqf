@@ -121,7 +121,7 @@
 ["\a3\structures_f\walls\indfnc_3_f.p3d", [[-1.45,0.05,0],[1.45,0.05,0]]],
 ["\a3\structures_f\walls\indfnc_3_d_f.p3d", [[-1.45,0.2,0],[1.5,0.2,0]]],
 ["\a3\structures_f\walls\indfnc_3_f.p3d", [[-1.5,0.05,0],[1.5,0.05,0]]],
-["\a3\structures_f\walls\indfnc_corner_f.p3d", [[-1.35,0.05,0],[1.55,0.05,0]]]
+["\a3\structures_f\walls\indfnc_corner_f.p3d", [[-1.35,0.05,0],[1.55,0.05,0]]],
 
 ["\a3\structures_f_enoch\walls\net\netfence_03_m_3m_f.p3d", [[-1.45,0,0],[1.45,0,0]]],
 ["\a3\structures_f_enoch\walls\net\netfence_03_m_3m_d_f.p3d", [[-1.5,0.23,0],[1.5,0.23,0]]],
