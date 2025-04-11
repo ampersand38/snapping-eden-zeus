@@ -118,6 +118,9 @@
 ["\a3\structures_f_exp\walls\net\netfence_01_m_4m_f.p3d", [[-2.0,0,0],[1.97,0,0]]],
 ["\a3\structures_f_exp\walls\net\netfence_01_m_8m_f.p3d", [[-4.0,0,0],[3.98,0,0]]],
 
+["\a3\structures_f\walls\indfnc_3_f.p3d", [[-1.45,0,0],[1.45,0,0]]],
+["\a3\structures_f\walls\indfnc_corner_f.p3d", [[-1.35,0,0],[1.55,0,0]]],
+
 ["land_cncwall1_f",[[0.645195,-0.316406,-1.84441],[-0.648125,-0.316406,-1.84441]]],
 ["land_cncwall4_f",[[-2.61297,-0.3125,-1.84441],[2.61199,-0.310547,-1.84441]]],
 
