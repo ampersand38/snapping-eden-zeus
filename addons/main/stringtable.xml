@@ -3,42 +3,55 @@
     <Package name="Main">
         <Key ID="STR_SEZ_Main_HintSnapping">
             <English>Snapping</English>
+            <French>Accrochage</French>
         </Key>
         <Key ID="STR_SEZ_Main_KeyOpenAttributes_Tooltip">
             <English>Open Eden Attributes diagloue for the selected entities.</English>
+            <French>Ouvrir la boîte de dialogue Attributs d'Eden pour les entités sélectionnées.</French>
         </Key>
         <Key ID="STR_SEZ_Main_KeySnapToCursor">
             <English>Snap to Cursor</English>
+            <French>Accrochage au curseur</French>
         </Key>
         <Key ID="STR_SEZ_Main_KeySnapToCursor_Tooltip">
             <English>Snap selected object to the object under the cursor.</English>
+            <French>Accrocher l'objet sélectionné à l'objet situé sous le curseur.</French>
         </Key>
         <Key ID="STR_SEZ_Main_RotationToggle">
             <English>Rotation Toggle</English>
+            <French>Basculer la rotation</French>
         </Key>
         <Key ID="STR_SEZ_Main_RotationToggle_Tooltip">
             <English>Toggle rotation behaviour. Moving object will match the static object direction at the nearest 90° increment.</English>
+            <French>Permet d'alterner le comportement de la rotation. L'objet en mouvement correspondra à la direction de l'objet statique à l'incrément de 90° le plus proche.</French>
         </Key>
         <Key ID="STR_SEZ_Main_SnappingToggle">
             <English>Snapping Toggle</English>
+            <French>Poignée d'accrochage</French>
         </Key>
         <Key ID="STR_SEZ_Main_SnappingToggle_Tooltip">
             <English>Toggle snapping on drag-and-drop.</English>
+            <French>Permet d'activer l'accrochage lors d'un glisser-déposer.</French>
         </Key>
         <Key ID="STR_SEZ_Main_SnappingforEdenandZeus">
             <English>Snapping for Eden and Zeus</English>
+            <French>Clipser pour Eden et Zeus</French>
         </Key>
         <Key ID="STR_SEZ_Main_TerrainToggle">
             <English>Terrain Toggle</English>
+            <French>Bascule du terrain</French>
         </Key>
         <Key ID="STR_SEZ_Main_TerrainToggle_Tooltip">
             <English>Toggle terrain behaviour. Moving object will snap to terrain surface.</English>
+            <French>Permet de modifier le comportement du terrain. L'objet en mouvement s'accroche à la surface du terrain.</French>
         </Key>
         <Key ID="STR_SEZ_Main_UseKeybinds">
             <English>Use Keybinds</English>
+            <French>Utiliser les raccourcis clavier</French>
         </Key>
         <Key ID="STR_SEZ_Main_UseKeybinds_Tooltip">
             <English>Use CBA keybinds instead of 3DEN widgets to toggle snapping, rotation, and terrain modes.</English>
+            <French>Utilisez les raccourcis clavier CBA au lieu des éléments 3DEN pour basculer entre les modes d'accrochage, de rotation et de terrain.</French>
         </Key>
     </Package>
 </Project>
