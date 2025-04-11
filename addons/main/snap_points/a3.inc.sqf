@@ -129,6 +129,9 @@
 ["\a3\structures_f_enoch\walls\net\netfence_03_m_3m_corner_f.p3d", [[-1.4,0,0],[1.55,0,0]]],
 ["\a3\structures_f_enoch\walls\net\netfence_03_m_9m_f.p3d", [[-4.55,-0.05,0],[4.45,-0.05,0]]],
 
+["\a3\structures_f_orange\walls\plastic\plasticnetfence_01_short_f.p3d", [[-2,0,0],[2.03,0,0]]],
+["\a3\structures_f_orange\walls\plastic\plasticnetfence_01_short_d_f.p3d", [[-2,0.1,0],[2,0.1,0]]],
+
 ["land_cncwall1_f",[[0.645195,-0.316406,-1.84441],[-0.648125,-0.316406,-1.84441]]],
 ["land_cncwall4_f",[[-2.61297,-0.3125,-1.84441],[2.61199,-0.310547,-1.84441]]],
 
