@@ -6,7 +6,7 @@
             <French>Accrochage</French>
         </Key>
         <Key ID="STR_SEZ_Main_KeyOpenAttributes_Tooltip">
-            <English>Open Eden Attributes diagloue for the selected entities.</English>
+            <English>Open Eden Attributes dialogue for the selected entities.</English>
             <French>Ouvrir la boîte de dialogue Attributs d'Eden pour les entités sélectionnées.</French>
         </Key>
         <Key ID="STR_SEZ_Main_KeySnapToCursor">
