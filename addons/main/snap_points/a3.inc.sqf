@@ -106,6 +106,31 @@
 ["land_backalley_01_l_1m_f", [[-0.565,0,0],[0.565,0,0]]],
 ["land_backalley_01_l_gap_f", [[-1.555,0.001,0],[1.555,0.001,0]]],
 ["land_backalley_01_l_gate_f", [[-1.57,-0.025,0],[1.57,-0.025,0]]],
+["land_backalley_02_l_1m_f", [[-0.5,0,0],[0.44,0,0]]],
+
+["land_net_fence_gate_f", [[-3,0,0],[3,0,0]]],
+["land_net_fenced_8m_f", [[-4,-0.1,0],[4,-0.1,0]]],
+
+["land_pipe_fence_4m_f", [[-2,0,0],[2,0,0]]],
+
+["\a3\structures_f_exp\walls\net\netfence_01_m_gate_f.p3d", [[-2.0,0,0],[2.0,0,0]]],
+["\a3\structures_f_exp\walls\net\netfence_01_m_d_f.p3d", [[-2.0,0,0],[1.97,0,0]]],
+["\a3\structures_f_exp\walls\net\netfence_01_m_4m_f.p3d", [[-2.0,0,0],[1.97,0,0]]],
+["\a3\structures_f_exp\walls\net\netfence_01_m_8m_f.p3d", [[-4.0,0,0],[3.98,0,0]]],
+
+["\a3\structures_f\walls\indfnc_3_f.p3d", [[-1.45,0.05,0],[1.45,0.05,0]]],
+["\a3\structures_f\walls\indfnc_3_d_f.p3d", [[-1.45,0.2,0],[1.5,0.2,0]]],
+["\a3\structures_f\walls\indfnc_3_f.p3d", [[-1.5,0.05,0],[1.5,0.05,0]]],
+["\a3\structures_f\walls\indfnc_corner_f.p3d", [[-1.35,0.05,0],[1.55,0.05,0]]],
+
+["\a3\structures_f_enoch\walls\net\netfence_03_m_3m_f.p3d", [[-1.45,0,0],[1.45,0,0]]],
+["\a3\structures_f_enoch\walls\net\netfence_03_m_3m_d_f.p3d", [[-1.5,0.23,0],[1.5,0.23,0]]],
+["\a3\structures_f_enoch\walls\net\netfence_03_m_3m_hole_f.p3d", [[-1.55,-0.05,0],[1.55,-0.05,0]]],
+["\a3\structures_f_enoch\walls\net\netfence_03_m_3m_corner_f.p3d", [[-1.4,0,0],[1.55,0,0]]],
+["\a3\structures_f_enoch\walls\net\netfence_03_m_9m_f.p3d", [[-4.55,-0.05,0],[4.45,-0.05,0]]],
+
+["\a3\structures_f_orange\walls\plastic\plasticnetfence_01_short_f.p3d", [[-2,0,0],[2.03,0,0]]],
+["\a3\structures_f_orange\walls\plastic\plasticnetfence_01_short_d_f.p3d", [[-2,0.1,0],[2,0.1,0]]],
 
 ["land_cncwall1_f",[[0.645195,-0.316406,-1.84441],[-0.648125,-0.316406,-1.84441]]],
 ["land_cncwall4_f",[[-2.61297,-0.3125,-1.84441],[2.61199,-0.310547,-1.84441]]],
