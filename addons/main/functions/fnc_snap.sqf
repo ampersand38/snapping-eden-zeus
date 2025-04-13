@@ -32,7 +32,7 @@ params [
 if (is3DEN && {current3DENOperation != ""}) exitWith {};
 
 if (isFilePatchingEnabled) then {
-    call COMPILE_FILE(initSnapping);
+    call COMPILE_FILE(initSnapping.inc);
 };
 
 if (sez_setting_useKeybinds && {!sez_snappingenabled}) exitWith {};
