@@ -28,7 +28,7 @@ if (isNull _object) exitWith {};
 private _intersection = lineIntersectsSurfaces [
     AGLToASL positionCameraToWorld [0,0,0],
     AGLToASL screenToWorld getMousePosition,
-    objNull, objNull, true, 1, "GEOM", "ROADWAY"
+    _object, objNull, true, 1, "GEOM", "ROADWAY"
 ] param [0, []];
 if (_intersection isEqualTo []) exitWith {};
 
