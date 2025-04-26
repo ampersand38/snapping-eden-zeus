@@ -3,7 +3,7 @@ PREP(getSnapPoints);
 PREP(handleInputToggle);
 PREP(inputCuratorWatch);
 PREP(nearestPair);
-PREP(setPosASL);
 PREP(snap);
 PREP(snapSelectedToCursor);
+PREP(translate);
 PREP(vectorTo3DENRotation);
