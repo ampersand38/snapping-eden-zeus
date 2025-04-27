@@ -114,7 +114,7 @@ private _isTwoPOints = _distance > 0 && {_minDistance_2 < _distance} &&
 if (_isTwoPOints) then {
     //systemChat str "two points";
     // Reconvert to model space due to dir change
-    _posModel = _object worldToModel _snapPointThis;
+    _posModel = _object worldToModelVisual _snapPointThis;
 
     private _dirNeighbour = _snapPointNeighbour getDir _snapPointNeighbour_2;
     private _dirSnapPoints = _snapPointThis getDir _snapPointThis_2;
@@ -145,7 +145,7 @@ if (_angle > -1
     }
 ) then {
     // Reconvert to model space due to dir change
-    _posModel = _object worldToModel _snapPointThis;
+    _posModel = _object worldToModelVisual _snapPointThis;
 
     // Adjust direction
     _dirTo = getDir _neighbour - 360;
@@ -170,11 +170,9 @@ if (_angle > -1
 };
 
 // Transform position
-_pos = _pos vectorDiff (_snapPointThis vectorDiff _snapPointNeighbour);
-//_pos = [_pos # 0, _pos # 1, (getposASL _neighbour) # 2];
-//systemChat format["pos found %1",_pos];
+private _translation = _snapPointThis vectorDiff _snapPointNeighbour;
 
-[_object, _pos] call FUNC(setPosASL);
+[_object, _translation] call FUNC(translate);
 
 // Snapping of objects on slopped terrain (were objects z-axis should end up perpendicular to sea surface)
 if ((getPos _neighbour # 2) < 0.1
@@ -189,8 +187,7 @@ if ((getPos _neighbour # 2) < 0.1
     }
 ) then {
     private _height = getPos _object # 2;
-    _pos = _pos vectorAdd [0, 0, -_height];
-    [_object, _pos] call FUNC(setPosASL);
+    [_object, [0, 0, -_height]] call FUNC(translate);
 };
 
 // drawing hint after successful snapping

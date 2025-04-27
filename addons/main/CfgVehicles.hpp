@@ -9,8 +9,8 @@ class CfgVehicles
         {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers
             {
-                dragged3DEN = "_this call sez_main_fnc_snap;";
-                registeredToWorld3DEN = "_this call sez_main_fnc_snap;";
+                dragged3DEN = "if (sez_setting_useKeybinds) exitWith {}; _this call sez_main_fnc_snap;";
+                registeredToWorld3DEN = "if (sez_setting_useKeybinds) exitWith {}; _this call sez_main_fnc_snap;";
             };
         };
     };
