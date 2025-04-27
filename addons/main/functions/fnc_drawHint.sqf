@@ -1,7 +1,8 @@
 #include "script_component.hpp"
 /*
 * Author: Ampersand
-* Toggle angle snapping on curator time input
+* Draw a marker/icon into 3D space where a specific point is.
+* Marker/icon whill disappear after a short while.
 *
 * Arguments:
 * 0: Points <ARRAY> [[[x,y,z], [r,g,b,a]], ]
