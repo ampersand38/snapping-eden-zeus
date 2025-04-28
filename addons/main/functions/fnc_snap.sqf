@@ -32,6 +32,7 @@ params [
 if (is3DEN && {current3DENOperation != ""}) exitWith {};
 
 if (isFilePatchingEnabled) then {
+    // While testing, re-compile the initSnapping.inc file to include newly editted snap points
     call COMPILE_FILE(initSnapping.inc);
 };
 
