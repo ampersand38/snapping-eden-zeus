@@ -1,19 +1,9 @@
 /*
+run
 call compile preProcessFileLineNumbers "z\sez\addons\main\snap_points\findCornerAtCenter.inc.sqf"
 
-// Add test points
-{
-    sez_snapPointsMap set _x;
-
-} forEach [
-
-["a3\structures_f\mil\bagfence\bagfence_corner_f.p3d",[[-0.626426,-0.498517,0],[-0.626426,0.498517,0],[0.626426,-0.498517,0],[0.626426,0.498517,0]]],
-["a3\structures_f\mil\bagfence\bagfence_short_f.p3d",[[-0.991786,-0.25,0],[-0.991786,0.25,0],[0.991786,-0.25,0],[0.991786,0.25,0]]],
-["a3\structures_f\mil\bagfence\bagfence_long_f.p3d",[[-1.56135,-0.25,0],[-1.56135,0.25,0],[1.56135,-0.25,0],[1.56135,0.25,0]]],
-["a3\structures_f\mil\bagfence\bagfence_round_f.p3d",[[1.59431,-0.00654522,0],[0.895297,0.70856,0],[-1.07709,0.617549,-0.205116],[-1.44573,0.195561,0.623152]]],
-["a3\structures_f\mil\bagfence\bagfence_end_f.p3d",[[-0.443938,-0.25,0],[-0.443938,0.25,0],[0.443937,-0.25,0],[0.443937,0.25,0]]]
-
-];
+watch
+sez_corner
 
 // Bounding box
 _v = call amp_fnc_gv;
@@ -111,7 +101,7 @@ drawIcon3D [_icon, [1, 1, 1, 0.35], ASLToAGL _posASL, 1, 1, 0, ""];
     if (count _normals < 3) exitWith {[]};
 
     private _pos3Planes = (_points + _normals) call sez_fnc_intersect3Planes;
-    drawIcon3D [_icon, [1, 0, 1, 1], _pos3Planes, 1, 1, 0, ""];
+    drawIcon3D [_icon, [1, 0, 1, 1], _pos3Planes, 1, 1, 0, str _pos3Planes];
     _pos3Planes = (_object worldToModelVisual _pos3Planes);
 
     private _name = typeOf _object;
