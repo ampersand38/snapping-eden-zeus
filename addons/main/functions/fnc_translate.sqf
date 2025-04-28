@@ -1,7 +1,8 @@
 #include "script_component.hpp"
 /*
  * Author: Ampersand
- * Set the posASL for the object in Eden or Zeus.
+ * Move given object by the given translation vector.
+ * (handles different logic for both Eden and Zeus)
  *
  * Arguments:
  * 0: Object <OBJECT>

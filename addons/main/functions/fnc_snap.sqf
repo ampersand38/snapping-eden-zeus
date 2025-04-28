@@ -41,6 +41,7 @@ if (!sez_setting_useKeybinds && {
     || {!isNull curatorCamera && {!shownCuratorCompass}}
 }) exitWith {};
 
+// workaround for SCP (and other mod) objects which are not "Static", but that have memory points defined
 if !(
     (
         toLower typeOf _object in sez_snapPointsMap
@@ -104,6 +105,7 @@ if (_distance > 0 && {_minDistance > _distance}) exitWith {
 };
 
 //systemChat str [(_snapPointThis distance _snapPointThis_2), (_snapPointNeighbour distance _snapPointNeighbour_2)];
+// check if the 2x yellow crosses and 2x green crosses are similarly spaced out (max 0.1m difference)
 private _isTwoPOints = _distance > 0 && {_minDistance_2 < _distance} &&
     {abs((_snapPointThis distance _snapPointThis_2)
     - (_snapPointNeighbour distance _snapPointNeighbour_2))
@@ -172,7 +174,7 @@ private _translation = _snapPointThis vectorDiff _snapPointNeighbour;
 
 [_object, _translation] call FUNC(translate);
 
-// Snap to angled surface
+// Snapping of objects on slopped terrain (were objects z-axis should end up perpendicular to sea surface)
 if ((getPos _neighbour # 2) < 0.1
     && {
         (sez_setting_useKeybinds && {sez_terrainenabled})
@@ -188,6 +190,7 @@ if ((getPos _neighbour # 2) < 0.1
     [_object, [0, 0, -_height]] call FUNC(translate);
 };
 
+// drawing hint after successful snapping
 if (_isTwoPOints) then {
     [
         [_snapPointNeighbour, [0,1,0,1]],
