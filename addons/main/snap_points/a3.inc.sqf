@@ -132,6 +132,14 @@
 ["\a3\structures_f_orange\walls\plastic\plasticnetfence_01_short_f.p3d", [[-2,0,0],[2.03,0,0]]],
 ["\a3\structures_f_orange\walls\plastic\plasticnetfence_01_short_d_f.p3d", [[-2,0.1,0],[2,0.1,0]]],
 
+["a3\props_f_enoch\military\decontamination\powercable_01_straightlong_f", [[-0.0055,-2.499,0.001055],[-0.005,2.499,0.002383711]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_straightshort_f", [[-0.0052,-0.489,0.0018],[-0.0046,0.501,-0.00023]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_corner_f", [[-0.5267,0.4189,0.0043],[0.4493,-0.561,0.003]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_curveshort_f", [[0.546,0.668,0.001],[-0.4014,-0.6816,0.002]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_curvelong_f", [[1.00415,2.5545,0.0033],[-0.9475,-2.5594,0.00277]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_sbend_f", [[0.41467,-2.48779,0.0023],[-0.43066,2.5005,0.001]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_step_f", [[-0.00549,-1.67432,-0.21677],[-0.00549,1.687,-0.2169]]],
+
 ["land_cncwall1_f",[[0.645195,-0.316406,-1.84441],[-0.648125,-0.316406,-1.84441]]],
 ["land_cncwall4_f",[[-2.61297,-0.3125,-1.84441],[2.61199,-0.310547,-1.84441]]],
 
