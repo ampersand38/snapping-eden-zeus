@@ -132,6 +132,30 @@
 ["\a3\structures_f_orange\walls\plastic\plasticnetfence_01_short_f.p3d", [[-2,0,0],[2.03,0,0]]],
 ["\a3\structures_f_orange\walls\plastic\plasticnetfence_01_short_d_f.p3d", [[-2,0.1,0],[2,0.1,0]]],
 
+["a3\props_f_enoch\military\decontamination\powercable_01_straightlong_f", [[-0.0055,-2.499,0.001055],[-0.005,2.499,0.002383711]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_straightshort_f", [[-0.0052,-0.489,0.0018],[-0.0046,0.501,-0.00023]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_corner_f", [[-0.5267,0.4189,0.0043],[0.4493,-0.561,0.003]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_curveshort_f", [[0.546,0.668,0.001],[-0.4014,-0.6816,0.002]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_curvelong_f", [[1.00415,2.5545,0.0033],[-0.9475,-2.5594,0.00277]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_sbend_f", [[0.41467,-2.48779,0.0023],[-0.43066,2.5005,0.001]]],
+["a3\props_f_enoch\military\decontamination\powercable_01_step_f", [[-0.00549,-1.67432,-0.21677],[-0.00549,1.687,-0.2169]]],
+
+["a3\props_f_enoch\military\decontamination\layflathose_01_straightlong_f", [[-0.0217,-2.49,0.00446],[-0.021,2.49,0.0024]]],
+["a3\props_f_enoch\military\decontamination\layflathose_01_straightshort_f", [[0.00122,-0.488,0.00449],[0.00122,0.488,0.00177]]],
+["a3\props_f_enoch\military\decontamination\layflathose_01_corner_f", [[-0.554,0.5298,0.0007],[0.465,-0.563,0.003]]],
+["a3\props_f_enoch\military\decontamination\layflathose_01_curveshort_f", [[0.506,0.635,0.0008],[-0.4728,-0.665,-0.0006]]],
+["a3\props_f_enoch\military\decontamination\layflathose_01_curvelong_f", [[0.98,2.472,-0.0003],[-0.974,-2.501,-0.0006]]],
+["a3\props_f_enoch\military\decontamination\layflathose_01_sbend_f", [[0.4334,-2.504,-0.0005],[-0.43176,2.503,-0.0008]]],
+["a3\props_f_enoch\military\decontamination\layflathose_01_step_f", [[0.001,-1.627,-0.21675],[-0.0005,1.6265,-0.2169]]],
+
+["a3\props_f_enoch\military\decontamination\pressurehose_01_straightlong_f", [[-0.037,-2.45,-0.0016],[-0.036,2.38,0.0022]]],
+["a3\props_f_enoch\military\decontamination\pressurehose_01_straightshort_f", [[-0.0369,-0.446,0.001789],[-0.03723,0.386,0.0018]]],
+["a3\props_f_enoch\military\decontamination\pressurehose_01_corner_f", [[-0.498,0.464,0.0013],[0.3347,-0.461,0.003]]],
+["a3\props_f_enoch\military\decontamination\pressurehose_01_curveshort_f", [[0.411,0.61158,0.0032],[-0.4648,-0.762,0.0021]]],
+["a3\props_f_enoch\military\decontamination\pressurehose_01_curvelong_f", [[0.92,2.38,0.00095],[-0.9148,-2.526,-0.0018]]],
+["a3\props_f_enoch\military\decontamination\pressurehose_01_sbend_f", [[0.4694,-2.446,0.0014],[-0.5411,2.38,0.0033]]],
+["a3\props_f_enoch\military\decontamination\pressurehose_01_step_f", [[-0.037,-1.72,-0.199],[-0.0365,1.66,-0.199]]],
+
 ["land_cncwall1_f",[[0.645195,-0.316406,-1.84441],[-0.648125,-0.316406,-1.84441]]],
 ["land_cncwall4_f",[[-2.61297,-0.3125,-1.84441],[2.61199,-0.310547,-1.84441]]],
 
