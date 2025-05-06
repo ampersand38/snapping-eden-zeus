@@ -21,6 +21,9 @@
 params ["_mode"];
 
 if (!sez_setting_useKeybinds) exitWith {};
+
+#include "exitIfTyping.inc.sqf"
+
 if (!sez_snappingEnabled && {_mode > 0}) exitWith {};
 
 private _varName = [

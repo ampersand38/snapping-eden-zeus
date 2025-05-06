@@ -22,6 +22,6 @@ class CfgUserActions {
     class GVAR(OpenAttributes) { // This class name is used for internal representation and also for the inputAction command.
         displayName = "$STR_3DEN_Display3DEN_ControlsHint_Attributes";
         tooltip = CSTRING(KeyOpenAttributes_Tooltip);
-        onActivate = "if (is3DEN) then {do3DENAction 'OpenAttributes';};";		// _this is always true.
+        onActivate = QUOTE([] call FUNC(openAttributes));		// _this is always true.
     };
 };

@@ -3,6 +3,7 @@ PREP(getSnapPoints);
 PREP(handleInputToggle);
 PREP(inputCuratorWatch);
 PREP(nearestPair);
+PREP(openAttributes);
 PREP(snap);
 PREP(snapSelectedToCursor);
 PREP(translate);

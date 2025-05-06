@@ -15,6 +15,8 @@
 * Public: No
 */
 
+#include "exitIfTyping.inc.sqf"
+
 private _object = objNull;
 if (is3DEN) then {
     _object = get3DENSelected "object" param [0, objNull];
