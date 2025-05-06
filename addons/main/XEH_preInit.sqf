@@ -16,8 +16,8 @@ sez_curatorSnapAngleEnabled = true;
 ["ModuleCurator_F", "Init", {
     params ["_logic"];
 
-    _logic addEventHandler ["CuratorObjectEdited", {if (sez_setting_useKeybinds) exitWith {}; [_this select 1] call FUNC(snap)}];
-    _logic addEventHandler ["CuratorObjectPlaced", {if (sez_setting_useKeybinds) exitWith {}; [_this select 1] call FUNC(snap)}];
+    _logic addEventHandler ["CuratorObjectEdited", {[_this select 1] call FUNC(snap);}];
+    _logic addEventHandler ["CuratorObjectPlaced", {[_this select 1] call FUNC(snap);}];
 }, true, [], true] call CBA_fnc_addClassEventHandler;
 
 ADDON = true;

@@ -36,11 +36,19 @@ if (isFilePatchingEnabled) then {
     call COMPILE_FILE(initSnapping.inc);
 };
 
-if (sez_setting_useKeybinds && {!sez_snappingenabled}) exitWith {};
+if (sez_setting_useKeybinds && {!sez_snappingenabled}) exitWith {
+    #ifdef DEBUG_MODE_FULL
+        systemChat "Keybind mode. Snapping disabled.";
+    #endif
+};
 if (!sez_setting_useKeybinds && {
     (is3DEN && {current3DENOperation != "" || {get3DENActionState "MoveGridToggle" == 0}})
     || {!isNull curatorCamera && {!shownCuratorCompass}}
-}) exitWith {};
+}) exitWith {
+    #ifdef DEBUG_MODE_FULL
+        systemChat "Widget mode. Snapping disabled.";
+    #endif
+};
 
 // workaround for SCP (and other mod) objects which are not "Static", but that have memory points defined
 if !(
