@@ -19,9 +19,6 @@ exclude = [
     "*.sqfc",
 ]
 
-[asc]
-enabled = true
-
 # Launched with `hemtt launch`
 [hemtt.launch.default]
 workshop = [
