@@ -2,13 +2,13 @@
 // type names must converted to lower case
 
 // large components 
-["praa_tunnels_large_ramp",[[-0.024,-15.0683,-3.0387],[-0.024,14.9317,-0.039]]],
-["praa_tunnels_large_s_bend",[[10,9.99954,-1.54561],[-10,-10.0005,-1.54561]]],
-["praa_tunnels_large_bend",[[5.0006,10.0055,-1.50936],[-9.99922,-4.996,-1.50936]]],
-["praa_tunnels_large_winding",[[-0.0152,9.99967,-1.59789],[-0.0148,-10.0004,-1.59789]]],
-["praa_tunnels_large_room_1door",[[-0.024,-10.015,-1.47656]]],
-["praa_tunnels_large_room_2doors",[[-5.024,-20.015,-1.55663],[9.977,4.984,-1.55663]]],
-["praa_tunnels_large_room_4doors",[[4.977,-19.9775,-1.55663],[9.97624,5.024,-1.55663],[-5.024,20.0225,-1.55663],[-10.0238,5.022,-1.55663]]],
+["praa_tunnels_large_ramp",[[0,0,0],[-0.024,-15.0683,-3.0387],[-0.024,14.9317,-0.039]]],
+["praa_tunnels_large_s_bend",[[0,0,0],[10,9.99954,-1.54561],[-10,-10.0005,-1.54561]]],
+["praa_tunnels_large_bend",[[0,0,0],[5.0006,10.0055,-1.50936],[-9.99922,-4.996,-1.50936]]],
+["praa_tunnels_large_winding",[[0,0,0],[-0.0152,9.99967,-1.59789],[-0.0148,-10.0004,-1.59789]]],
+["praa_tunnels_large_room_1door",[[0,0,0],[-0.024,-10.015,-1.47656]]],
+["praa_tunnels_large_room_2doors",[[0,0,0],[-5.024,-20.015,-1.55663],[9.977,4.984,-1.55663]]],
+["praa_tunnels_large_room_4doors",[[0,0,0],[4.977,-19.9775,-1.55663],[9.97624,5.024,-1.55663],[-5.024,20.0225,-1.55663],[-10.0238,5.022,-1.55663]]],
 
 // small components
 ["praa_tunnels_small_short_deadend",[[0,-4.99066,-1.58456]]],
@@ -19,3 +19,13 @@
 ["praa_tunnels_small_bend",[[0,-4.99896,-1.59789],[-4.99973,0,-1.59789]]],
 ["praa_tunnels_small_t_junction",[[0,-5.00302,-1.59789],[0,4.997,-1.59789],[-5.00041,-0.003,-1.59789]]],
 ["praa_tunnels_small_intersection",[[0,-5.00234,-1.59652],[0,4.99768,-1.59652],[-5.00049,0,-1.59652],[4.99953,0,-1.59652]]],
+
+// interiors (called "statics" in 3dens asset browser)
+["praa_tunnels_large_ramp_statics_1",[[0,-3.9,0.55]]],
+["praa_tunnels_large_s_bend_statics_1",[[-0.074,-3.56,0.65]]],
+["praa_tunnels_large_bend_statics_1",[[-0.9,1.3,0.5]]],
+["praa_tunnels_large_winding_statics_1",[[1.085,-2.21,0.65]]],
+["praa_tunnels_large_room_1door_statics_1",[[0,0,0.2]]],
+["praa_tunnels_large_room_2doors_statics_1",[[-1.5,0.58,2.31]]],
+["praa_tunnels_large_room_4doors_statics_1",[[-2,-2.5,0.44]]],
+
