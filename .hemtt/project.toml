@@ -28,4 +28,13 @@ workshop = [
     "1585582292", # Arma Debug Engine
 ]
 parameters = [
+    "-window",
+]
+
+# Launched with `hemtt launch fata`
+[hemtt.launch.fata]
+extends = "default"
+workshop = [
+    "583496184",  # CUP Terrains - Core
+    "2116880715", # FATA Tunnels
 ]
