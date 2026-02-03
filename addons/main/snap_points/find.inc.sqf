@@ -1,5 +1,5 @@
 /*
-call compile preProcessFileLineNumbers "z\sez\addons\main\snap_points\find.sqf"
+call compile preProcessFileLineNumbers "z\sez\addons\main\snap_points\find.inc.sqf"
 
 In editor, run entire script in Debug Console.
 Add Watch fields:
