@@ -339,6 +339,10 @@
 ["land_stadium_p9_f",[[-3.93359,-6.92773,3.22508]]],
 
 ["land_wiredfence_01_8m_f",[[-3.95117,0,-1.11325],[4.11457,0,-1.11325]]],
+["\a3\structures_f\walls\new_wiredfence_5m_f.p3d",[[-2.4,-0.39,-1.26654],[2.58,-0.39,-1.26654]]],
+["\a3\structures_f\walls\new_wiredfence_10m_f.p3d",[[-4.91,-0.35,-1.38723],[5.05,-0.35,-1.38723]]],
+["\a3\structures_f\walls\new_wiredfence_10m_dam_f.p3d",[[-5,-0.29,-1.28837],[5.05,-0.29,-1.28837]]],
+["\a3\structures_f\walls\new_wiredfence_pole_f.p3d",[[0,0,-1.27402],[0,0,-1.27402]]],
 
 // Tanoan pillbox bunkers
 ["land_pillboxbunker_01_big_f",[[-5.74609,-2.09888,-0.77],[-3.1,-2.09888,-0.77],[4.3,-2.0979,-0.77]]],
