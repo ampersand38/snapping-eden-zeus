@@ -344,6 +344,8 @@
 ["\a3\structures_f\walls\new_wiredfence_10m_dam_f.p3d",[[-5,-0.29,-1.28837],[5.05,-0.29,-1.28837]]],
 ["\a3\structures_f\walls\new_wiredfence_pole_f.p3d",[[0,0,-1.27402],[0,0,-1.27402]]],
 
+["land_powercable_submarine_f",[[-0.070,-16.10,1.545],[0.033,15.93,-1.554]]],
+
 // Tanoan pillbox bunkers
 ["land_pillboxbunker_01_big_f",[[-5.74609,-2.09888,-0.77],[-3.1,-2.09888,-0.77],[4.3,-2.0979,-0.77]]],
 ["land_pillboxbunker_01_hex_f",[[0.461999,-1.08,-0.95],[0.461999,1.17,-0.95],[-2.12158,-2.9,-0.95],[-2.13525,2.9,-0.95]]],
